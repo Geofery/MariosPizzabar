@@ -37,7 +37,4 @@ public class MariosPizzabarMenu {
     mariosPizzaMenu.add(new Pizza("Melina", 29, "Mushroom, Tomato, Leek, Olive, Feta cheese", 130));
     mariosPizzaMenu.add(new Pizza("Jens Special", 30, "Ham, Pineapple, Tomato, Cheese, Olive, Chili, Gorgonzola, Banana", 210));
   }
-
-
-
 }
