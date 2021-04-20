@@ -14,6 +14,10 @@ public class Pizza {
     this.price = price;
   }
 
+  public int getNumber() {
+    return number;
+  }
+
   @Override
   public String toString() {
     return number + "." +

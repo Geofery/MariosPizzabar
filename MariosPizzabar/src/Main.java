@@ -78,7 +78,11 @@ public class Main {
     }
 
     public void addOrder() {
-
+        OrderList orderlist = new OrderList();
+        orderlist.addOrder();
+        //Ved godt den ikke skal printes her. Det var for at teste.
+        //Printstatement nedenunder skal op i "ShowOrderList" ovenover :) 
+        ui.getString(orderlist.toString());
     }
 
     public void removeOrder() {

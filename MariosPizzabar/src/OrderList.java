@@ -7,21 +7,19 @@ public class OrderList {
   private ArrayList<Order> orderList = new ArrayList<>();
   private UI ui = new UI();
   private ArrayList<Integer> pizzaList = new ArrayList<>();
+  private ArrayList<Pizza> orderedPizzas = new ArrayList<>();
 
   public void addOrder() {
     int orderNr = generateOrderNr();
     String time = generateDateTime();
     ArrayList pizza = addPizza();
-
-    Order order = new Order(orderNr, time, pizza);
-    orderList.add(order);
+    addPizzaToOrder();
   }
 
   public int generateOrderNr() {
     int orderNr = orderList.size() + 1;
     return orderNr;
   }
-
 
   public LocalDateTime houseOrPhoneOrder() {
     ui.getString("Is it a phone order or a house order? p/h");
@@ -37,7 +35,6 @@ public class OrderList {
       ui.getString("Wrong input, please enter p for phone or h for house");
     }
     return houseOrPhoneOrder();
-
   }
 
   public String generateDateTime() {
@@ -69,11 +66,24 @@ public class OrderList {
     return pizzaList;
   }
 
-  @Override
-  public String toString() {
-    for (int i = 0; i < orderList.size(); i++) {
-      orderList.get(i);
+  //Denne metode tager pizzaList fra addPizza metoden (August og Jens).
+  //Løber den igennem og finder hver indeks position i PizzaMenu og ligger dem i en Arrayliste ved navn Orderedpizzas.
+  //Den bliver "kaldt" når metoden addOrder bliver kaldt.
+  public ArrayList addPizzaToOrder() {
+    PizzaMenu menu = new PizzaMenu();
+    menu.createPizzas();
+    for (int i = 0; i < pizzaList.size(); i++) {
+      int temp = pizzaList.get(i);
+      orderedPizzas.add(menu.mariosPizzaMenu.get(temp - 1));
+
     }
-    return "Orderlist: " + orderList;
+    return orderedPizzas;
+}
+
+  @Override
+  //Til ære for dig Michala :):):)!
+  public String toString() {
+    return "Orders\n " + orderedPizzas.toString().replace("[", "")
+        .replace("]", "").replace(",", "\n") + "\n";
   }
 }
