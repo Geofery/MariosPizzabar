@@ -10,7 +10,7 @@ public class OrderList {
     public void addOrder() {
         int orderNr = generateOrderNr();
         String time = generateDateTime();
-        int pizza = addPizza();
+        int pizza = 0;
 
 
 
