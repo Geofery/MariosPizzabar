@@ -94,7 +94,6 @@ public class Main {
     }
 
     public void getTotal() {
-
     }
 }
 
