@@ -6,6 +6,7 @@ import java.util.ArrayList;
 public class OrderList {
   private ArrayList<Order> orderList = new ArrayList<>();
   private UI ui = new UI();
+  private ArrayList<Integer> pizzaList = new ArrayList<>();
 
   public void addOrder() {
     int orderNr = generateOrderNr();
@@ -48,27 +49,23 @@ public class OrderList {
   }
 
   public ArrayList<Integer> addPizza() {
-    ArrayList<Integer> pizzaList = new ArrayList<>();
     ui.getString("Enter pizza number: ");
     int choice = ui.getScanInt();
 
     while (choice <= 31 && choice >= 1) {
 
-      ui.getString("OBS Enter number 0, to exit: ");
+      pizzaList.add(choice);
+      ui.getString("Enter number 0, to exit: ");
       ui.getString("Enter pizza number: ");
       choice = ui.getScanInt();
-      pizzaList.add(choice);
 
       if (choice > 30) {
         ui.getString("Wrong input, please enter nummber from 1 to 30: ");
+        addPizza();
 
       } else if (choice == 0) {
         System.out.println(pizzaList);
-
-      }else {
-        pizzaList.add(choice);
       }
-
     }
     return pizzaList;
   }
