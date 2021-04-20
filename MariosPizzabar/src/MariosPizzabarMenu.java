@@ -1,12 +1,13 @@
 import java.util.ArrayList;
 
 public class MariosPizzabarMenu {
+  private ArrayList<Pizza> mariosPizzaMenu = new ArrayList<>();
 
-  public void createPizzas(){
+
+  public void createPizzas() {
     // reference menu
     //https://www.colaccio.com/english-menu/
-    ArrayList<Pizza> mariosPizzaMenu = new ArrayList<>();
-    mariosPizzaMenu.add(new Pizza("Margheriata", 1,"Tomato sauce, Cheese" , 100));
+    mariosPizzaMenu.add(new Pizza("Margheriata", 1, "Tomato sauce, Cheese", 100));
     mariosPizzaMenu.add(new Pizza("Hawaii", 2, "Ham, Pineapple", 100));
     mariosPizzaMenu.add(new Pizza("Venezia", 3, "Salami, Pepper, Onion, Olive", 100));
     mariosPizzaMenu.add(new Pizza("Fungi", 4, "Mushroom", 100));
@@ -37,4 +38,13 @@ public class MariosPizzabarMenu {
     mariosPizzaMenu.add(new Pizza("Melina", 29, "Mushroom, Tomato, Leek, Olive, Feta cheese", 130));
     mariosPizzaMenu.add(new Pizza("Jens Special", 30, "Ham, Pineapple, Tomato, Cheese, Olive, Chili, Gorgonzola, Banana", 210));
   }
+
+  @Override
+  public String toString() {
+    for (int i = 0; i < mariosPizzaMenu.size(); i++) {
+      mariosPizzaMenu.get(i);
+    }
+    return "Menu" + mariosPizzaMenu;
+  }
 }
+
