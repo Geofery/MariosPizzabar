@@ -59,10 +59,13 @@ public class Main {
   }
 
   public void showOrderList(OrderList orderList) {
+    if (orderList.getOrders().size() == 0) {
+      ui.printString("\nThere are no orders!\n");
+    }
     for (int i = 0; i < orderList.getOrders().size(); i++) {
       ui.printString(orderList.getOrders().get(i).toString());
+      }
     }
-  }
 
   public void addOrder(OrderList orderList, PizzaMenu menu) {
     orderList.addOrder(menu);
