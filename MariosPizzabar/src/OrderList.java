@@ -12,7 +12,7 @@ public class OrderList {
   public void addOrder(PizzaMenu menu) {
     int orderNr = generateOrderNr();
     String time = generateDateTime();
-    ArrayList pizzaList = addPizza();
+    ArrayList pizzaList = addPizza(menu);
     addPizzaToOrder(menu);
   }
 
@@ -44,20 +44,20 @@ public class OrderList {
     return formatDateTime;
   }
 
-  public ArrayList<Integer> addPizza() {
+  public ArrayList<Integer> addPizza(PizzaMenu menu) {
     ui.getString("Enter pizza number: ");
     int choice = ui.getScanInt();
 
-    while (choice <= 31 && choice >= 1) {
+    while (choice <= menu.getMariosPizzaMenu().size() + 1 && choice >= 1) {
 
       pizzaList.add(choice);
       ui.getString("Enter number 0, to exit: ");
       ui.getString("Enter pizza number: ");
       choice = ui.getScanInt();
 
-      if (choice > 30) {
+      if (choice > menu.getMariosPizzaMenu().size()) {
         ui.getString("Wrong input, please enter nummber from 1 to 30: ");
-        addPizza();
+        addPizza(menu);// rekursivt kald
 
       } else if (choice == 0) {
         System.out.println(pizzaList);
