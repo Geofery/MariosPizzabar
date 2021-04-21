@@ -41,13 +41,4 @@ public class PizzaMenu {
     public ArrayList<Pizza> getMariosPizzaMenu() {
         return mariosPizzaMenu;
     }
-
-    @Override
-    public String toString() {
-        String menu = "";
-        for (int i = 0; i < mariosPizzaMenu.size(); i++) {
-            menu += mariosPizzaMenu.get(i);
-        }
-        return menu;
-    }
 }
