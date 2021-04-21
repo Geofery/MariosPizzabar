@@ -1,15 +1,19 @@
 public class Main {
-  UI ui = new UI();
+  UI ui;
+
+  public Main(UI ui) {
+    this.ui = ui;
+  }
 
   public static void main(String[] args) {
-    new Main().run();
+    new Main(new UI()).run();
   }
 
   public void run() {
     OrderList orderList = new OrderList();
     PizzaMenu menu = new PizzaMenu();
 
-    Menu digitalMenu = new Menu("Marios pizzabar", "Please choose: ");
+    Menu digitalMenu = new Menu("Marios pizzabar", "Please choose: ", ui);
     boolean keepRunning;
     int choice;
 
