@@ -79,7 +79,6 @@ public class Main {
     orderList.getOrders().remove(orderNr - 1);
   }
 
-
   public void finishOrder() {
 
   }

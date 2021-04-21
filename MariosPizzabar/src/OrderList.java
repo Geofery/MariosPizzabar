@@ -1,11 +1,12 @@
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+
 //
 public class OrderList {
   private ArrayList<Order> orderList = new ArrayList<>();
   private UI ui = new UI();
-  private ArrayList<Integer> pizzaList = new ArrayList<>();
+
   private ArrayList<Pizza> orderedPizzas = new ArrayList<>();
 
   public void addOrder(PizzaMenu menu) {
@@ -16,10 +17,9 @@ public class OrderList {
       ui.getString("Order is annulled");
 
     } else {
-      ArrayList pizzaList = convertNrToPizza(menu);
+      orderedPizzas = convertNrToPizza(menu);
     }
-
-    orderList.add(new Order(orderNr, time, pizzaList));
+    orderList.add(new Order(orderNr, time, orderedPizzas));
   }
 
   public int generateOrderNr() {
@@ -51,34 +51,29 @@ public class OrderList {
   }
 
   public ArrayList<Integer> addPizza(PizzaMenu menu) {
-
-    boolean validChoice = true;
+    ArrayList<Integer> pizzaList = new ArrayList<>();
+    boolean validChoice;
     int choice;
 
-
-    while (validChoice) {
-
+    do {
       ui.getString("Enter number 0, to exit: ");
-      ui.getString("Enter number :");
+      ui.getString("Enter pizzanumber :");
       choice = ui.getScanInt();
-
-      if ((choice <= menu.getPizzaMenu().size() + 1 && choice >= 1)) {
-        pizzaList.add(choice);
-
-
-      } else if (choice > menu.getPizzaMenu().size()) {
-        ui.getString("Wrong input, please enter nummber from 1 to 30: ");
-
-      } else if (choice == 0) {
+      validChoice = true;
+      if (choice == 0) {
         validChoice = false;
+      } else if (choice <= menu.getPizzaMenu().size() + 1 && choice >= 1) {
+        pizzaList.add(choice);
+      } else {
+        ui.getString("Wrong input, please enter number from 1 to 30: ");
       }
-    }
+    } while (validChoice);
+
     return pizzaList;
   }
 
-
   public ArrayList convertNrToPizza(PizzaMenu menu) {
-    addPizza(menu);
+    ArrayList<Integer> pizzaList = addPizza(menu);
     for (int i = 0; i < pizzaList.size(); i++) {
       int temp = pizzaList.get(i);
       orderedPizzas.add(menu.pizzaMenu.get(temp - 1));
@@ -88,7 +83,6 @@ public class OrderList {
 
   public ArrayList<Order> getOrders() {
     return orderList;
-
   }
 
 /*

@@ -20,6 +20,7 @@ public class Pizza {
     return number + "." +
         "\nName: " + name +
         "\nToppings: " + toppings +
-        "\nPrice: " + price;
+        "\nPrice: " + price +
+        "\n";
   }
 }
