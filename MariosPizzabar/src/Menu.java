@@ -39,11 +39,11 @@ public class Menu {
     }
 
     public int readChoice() {
-      Scanner scanner = new Scanner(System.in);
+      /*Scanner scanner = new Scanner(System.in);
         while (!scanner.hasNext()) {
             ui.getString(getLeadText());
             scanner.next();
-        }
+        }*/
         return ui.getScanInt();
     }
 }
