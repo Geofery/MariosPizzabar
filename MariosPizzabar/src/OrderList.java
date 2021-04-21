@@ -11,7 +11,13 @@ public class OrderList {
   public void addOrder(PizzaMenu menu) {
     int orderNr = generateOrderNr();
     String time = generateDateTime();
-    ArrayList pizzaList = convertNrToPizza(menu);
+
+    if (convertNrToPizza(menu) == null) {
+      ui.getString("Order is annulled");
+
+    } else {
+      ArrayList pizzaList = convertNrToPizza(menu);
+    }
 
     orderList.add(new Order(orderNr, time, pizzaList));
   }
@@ -45,26 +51,31 @@ public class OrderList {
   }
 
   public ArrayList<Integer> addPizza(PizzaMenu menu) {
-    ui.getString("Enter pizza number: ");
-    int choice = ui.getScanInt();
 
-    while (choice <= menu.getPizzaMenu().size() + 1 && choice >= 1) {
+    boolean validChoice = true;
+    int choice;
 
-      pizzaList.add(choice);
+
+    while (validChoice) {
+
       ui.getString("Enter number 0, to exit: ");
-      ui.getString("Enter pizza number: ");
+      ui.getString("Enter number :");
       choice = ui.getScanInt();
 
-      if (choice > menu.getPizzaMenu().size()) {
+      if ((choice <= menu.getPizzaMenu().size() + 1 && choice >= 1)) {
+        pizzaList.add(choice);
+
+
+      } else if (choice > menu.getPizzaMenu().size()) {
         ui.getString("Wrong input, please enter nummber from 1 to 30: ");
-        addPizza(menu);// rekursivt kald
 
       } else if (choice == 0) {
-        System.out.println(pizzaList);
+        validChoice = false;
       }
     }
     return pizzaList;
   }
+
 
   public ArrayList convertNrToPizza(PizzaMenu menu) {
     addPizza(menu);
@@ -73,12 +84,12 @@ public class OrderList {
       orderedPizzas.add(menu.pizzaMenu.get(temp - 1));
     }
     return orderedPizzas;
-}
+  }
 
-public ArrayList<Order> getOrders(){
+  public ArrayList<Order> getOrders() {
     return orderList;
 
-}
+  }
 
 /*
   @Override
