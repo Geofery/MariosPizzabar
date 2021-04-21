@@ -55,8 +55,8 @@ public class Main {
 
     public void showMenu() {
         PizzaMenu menu = new PizzaMenu();
-        for (int i = 0; i < menu.getMariosPizzaMenu().size(); i++) {
-            ui.getString(menu.getMariosPizzaMenu().get(i).toString());
+        for (int i = 0; i < menu.getPizzaMenu().size(); i++) {
+            ui.getString(menu.getPizzaMenu().get(i).toString());
         }
     }
 

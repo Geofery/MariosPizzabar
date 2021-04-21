@@ -47,14 +47,14 @@ public class OrderList {
     ui.getString("Enter pizza number: ");
     int choice = ui.getScanInt();
 
-    while (choice <= menu.getMariosPizzaMenu().size() + 1 && choice >= 1) {
+    while (choice <= menu.getPizzaMenu().size() + 1 && choice >= 1) {
 
       pizzaList.add(choice);
       ui.getString("Enter number 0, to exit: ");
       ui.getString("Enter pizza number: ");
       choice = ui.getScanInt();
 
-      if (choice > menu.getMariosPizzaMenu().size()) {
+      if (choice > menu.getPizzaMenu().size()) {
         ui.getString("Wrong input, please enter nummber from 1 to 30: ");
         addPizza(menu);// rekursivt kald
 
@@ -71,7 +71,7 @@ public class OrderList {
   public ArrayList addPizzaToOrder(PizzaMenu menu) {
     for (int i = 0; i < pizzaList.size(); i++) {
       int temp = pizzaList.get(i);
-      orderedPizzas.add(menu.mariosPizzaMenu.get(temp - 1));
+      orderedPizzas.add(menu.pizzaMenu.get(temp - 1));
     }
     return orderedPizzas;
 }
