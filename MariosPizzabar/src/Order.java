@@ -11,6 +11,10 @@ public class Order {
       this.orderedPizzas = orderedPizzas;
   }
 
+  public int getOrderNr() {
+    return orderNr;
+  }
+
   @Override
   public String toString() {
     return "Order number: " +orderNr +

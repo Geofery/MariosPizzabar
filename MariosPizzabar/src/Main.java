@@ -32,7 +32,7 @@ public class Main {
           break;
         case 4:
           ui.getString("Remove Order");
-          removeOrder(orderList, menu);
+          removeOrder(orderList);
           break;
         case 5:
           ui.getString("Finishing Order");
@@ -72,9 +72,13 @@ public class Main {
     orderList.addOrder(menu);
   }
 
-  public void removeOrder(OrderList orderList, PizzaMenu menu) {
+  public void removeOrder(OrderList orderList) {
+    ui.getString("Please enter order number for removal.");
+    int orderNr = ui.getScanInt();
 
+    orderList.getOrders().remove(orderNr - 1);
   }
+
 
   public void finishOrder() {
 
