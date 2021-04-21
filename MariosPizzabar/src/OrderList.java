@@ -12,12 +12,13 @@ public class OrderList {
   public void addOrder(PizzaMenu menu) {
     int orderNr = generateOrderNr();
     String time = generateDateTime();
+    ArrayList<Pizza> order= convertNrToPizza(menu);
 
-    if (convertNrToPizza(menu) == null) {
+    if (order == null) {
       ui.getString("Order is annulled");
 
     } else {
-      orderedPizzas = convertNrToPizza(menu);
+      orderedPizzas = order;
     }
     orderList.add(new Order(orderNr, time, orderedPizzas));
   }
