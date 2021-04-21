@@ -4,7 +4,9 @@ public class UI {
    private Scanner scan = new Scanner(System.in);
 
    public int getScanInt(){
-       return scan.nextInt();
+     int readInt = scan.nextInt();
+     scan.nextLine();
+       return readInt;
    }
 
    public void getString(String message){
