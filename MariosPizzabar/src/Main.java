@@ -19,38 +19,38 @@ public class Main {
       keepRunning = true;
       switch (choice) {
         case 1:
-          ui.getString("Pizza Menu");
+          ui.printString("Pizza Menu");
           showMenu(menu);
           break;
         case 2:
-          ui.getString("Orderlist");
+          ui.printString("Orderlist");
           showOrderList(orderList);
           break;
         case 3:
-          ui.getString("New Order");
+          ui.printString("New Order");
           addOrder(orderList, menu);
           break;
         case 4:
-          ui.getString("Remove Order");
+          ui.printString("Remove Order");
           removeOrder(orderList);
           break;
         case 5:
-          ui.getString("Finishing Order");
+          ui.printString("Finishing Order");
           finishOrder();
           break;
         case 6:
-          ui.getString("Statistics");
+          ui.printString("Statistics");
           showStatistics();
           break;
         case 9:
-          ui.getString("Quitting...");
-          ui.getString("Have a nice evening!");
-          ui.getString("Your total of the day:");
+          ui.printString("Quitting...");
+          ui.printString("Have a nice evening!");
+          ui.printString("Your total of the day:");
           getTotalOfDay();
           keepRunning = false;
           break;
         default:
-          ui.getString("You chose poorly... Try again!");
+          ui.printString("You chose poorly... Try again!");
           break;
       }
     } while (keepRunning);
@@ -58,13 +58,13 @@ public class Main {
 
   public void showMenu(PizzaMenu menu) {
     for (int i = 0; i < menu.getPizzaMenu().size(); i++) {
-      ui.getString(menu.getPizzaMenu().get(i).toString());
+      ui.printString(menu.getPizzaMenu().get(i).toString());
     }
   }
 
   public void showOrderList(OrderList orderList) {
     for (int i = 0; i < orderList.getOrders().size(); i++) {
-      ui.getString(orderList.getOrders().get(i).toString());
+      ui.printString(orderList.getOrders().get(i).toString());
     }
   }
 
@@ -73,7 +73,7 @@ public class Main {
   }
 
   public void removeOrder(OrderList orderList) {
-    ui.getString("Please enter order number for removal.");
+    ui.printString("Please enter order number for removal.");
     int orderNr = ui.getScanInt();
 
     orderList.getOrders().remove(orderNr - 1);

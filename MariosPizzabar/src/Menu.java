@@ -1,5 +1,3 @@
-import java.util.Scanner;
-
 public class Menu {
   private String menuHeader;
   private String leadText;
@@ -35,7 +33,7 @@ public class Menu {
     }
     printMenu += leadText;
 
-    ui.getString(printMenu);
+    ui.printString(printMenu);
   }
 
   public int readChoice() {

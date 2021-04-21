@@ -3,13 +3,21 @@ import java.util.Scanner;
 public class UI {
   private Scanner scan = new Scanner(System.in);
 
-  public int getScanInt() {
+  public int getScanInt(String errorMessage) {
+    while (!scan.hasNextInt()) {
+      printString(errorMessage);
+      scan.next();
+    }
     int readInt = scan.nextInt();
     scan.nextLine();
     return readInt;
   }
 
-  public void getString(String message) {
+  public int getScanInt() {
+    return this.getScanInt("Not a valid input");
+  }
+
+  public void printString(String message) {
     System.out.println(message);
   }
 

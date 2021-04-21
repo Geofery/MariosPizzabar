@@ -15,7 +15,7 @@ public class OrderList {
     ArrayList<Pizza> order= convertNrToPizza(menu);
 
     if (order == null) {
-      ui.getString("Order is annulled");
+      ui.printString("Order is annulled");
 
     } else {
       orderedPizzas = order;
@@ -29,7 +29,7 @@ public class OrderList {
   }
 
   public LocalDateTime houseOrPhoneOrder() {
-    ui.getString("Is it a phone order or a house order? p/h");
+    ui.printString("Is it a phone order or a house order? p/h");
     String answer = ui.getScanString().toLowerCase();
 
     if (answer.equals("p")) {
@@ -39,7 +39,7 @@ public class OrderList {
       LocalDateTime time = LocalDateTime.now().plusMinutes(25);
       return time;
     } else {
-      ui.getString("Wrong input, please enter p for phone or h for house");
+      ui.printString("Wrong input, please enter p for phone or h for house");
     }
     return houseOrPhoneOrder();
   }
@@ -57,8 +57,8 @@ public class OrderList {
     int choice;
 
     do {
-      ui.getString("Enter number 0, to exit: ");
-      ui.getString("Enter pizzanumber :");
+      ui.printString("Enter number 0, to exit: ");
+      ui.printString("Enter pizzanumber :");
       choice = ui.getScanInt();
       validChoice = true;
       if (choice == 0) {
@@ -66,7 +66,7 @@ public class OrderList {
       } else if (choice <= menu.getPizzaMenu().size() + 1 && choice >= 1) {
         pizzaList.add(choice);
       } else {
-        ui.getString("Wrong input, please enter number from 1 to 30: ");
+        ui.printString("Wrong input, please enter number from 1 to 30: ");
       }
     } while (validChoice);
 
