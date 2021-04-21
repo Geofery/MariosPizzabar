@@ -1,5 +1,3 @@
-import java.util.ArrayList;
-
 public class Main {
     UI ui = new UI();
 
