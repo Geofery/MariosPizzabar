@@ -9,11 +9,11 @@ public class OrderList {
   private ArrayList<Integer> pizzaList = new ArrayList<>();
   private ArrayList<Pizza> orderedPizzas = new ArrayList<>();
 
-  public void addOrder() {
+  public void addOrder(PizzaMenu menu) {
     int orderNr = generateOrderNr();
     String time = generateDateTime();
-    ArrayList pizza = addPizza();
-    addPizzaToOrder();
+    ArrayList pizzaList = addPizza();
+    addPizzaToOrder(menu);
   }
 
   public int generateOrderNr() {
@@ -69,13 +69,10 @@ public class OrderList {
   //Denne metode tager pizzaList fra addPizza metoden (August og Jens).
   //Løber den igennem og finder hver indeks position i PizzaMenu og ligger dem i en Arrayliste ved navn Orderedpizzas.
   //Den bliver "kaldt" når metoden addOrder bliver kaldt.
-  public ArrayList addPizzaToOrder() {
-    PizzaMenu menu = new PizzaMenu();
-    menu.createPizzas();
+  public ArrayList addPizzaToOrder(PizzaMenu menu) {
     for (int i = 0; i < pizzaList.size(); i++) {
       int temp = pizzaList.get(i);
       orderedPizzas.add(menu.mariosPizzaMenu.get(temp - 1));
-
     }
     return orderedPizzas;
 }

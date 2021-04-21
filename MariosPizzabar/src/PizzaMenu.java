@@ -3,7 +3,7 @@ import java.util.ArrayList;
 public class PizzaMenu {
     ArrayList<Pizza> mariosPizzaMenu = new ArrayList<>();
 
-    public void createPizzas() {
+    public PizzaMenu() {
         // reference menu
         //https://www.colaccio.com/english-menu/
         mariosPizzaMenu.add(new Pizza("Margheriata", 1, "Tomato sauce, Cheese", 100));

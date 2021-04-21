@@ -67,7 +67,6 @@ public class Main {
 
     public void showMenu() {
         PizzaMenu menu = new PizzaMenu();
-        menu.createPizzas();
         for (int i = 0; i < menu.getMariosPizzaMenu().size(); i++) {
             ui.getString(menu.getMariosPizzaMenu().get(i).toString());
         }
@@ -78,8 +77,9 @@ public class Main {
     }
 
     public void addOrder() {
+        PizzaMenu menu = new PizzaMenu();
         OrderList orderlist = new OrderList();
-        orderlist.addOrder();
+        orderlist.addOrder(menu);
         //Ved godt den ikke skal printes her. Det var for at teste.
         //Printstatement nedenunder skal op i "ShowOrderList" ovenover :) 
         ui.getString(orderlist.toString());
