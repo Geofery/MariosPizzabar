@@ -35,10 +35,6 @@ public class Main {
           removeOrder(orderList);
           break;
         case 5:
-          ui.printString("Finishing Order");
-          finishOrder();
-          break;
-        case 6:
           ui.printString("Statistics");
           showStatistics();
           break;
@@ -77,10 +73,6 @@ public class Main {
     int orderNr = ui.getScanInt();
 
     orderList.getOrders().remove(orderNr - 1);
-  }
-
-  public void finishOrder() {
-
   }
 
   public void showStatistics() {
