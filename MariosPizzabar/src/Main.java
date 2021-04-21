@@ -46,7 +46,7 @@ public class Main {
           ui.getString("Quitting...");
           ui.getString("Have a nice evening!");
           ui.getString("Your total of the day:");
-          getTotal();
+          getTotalOfDay();
           keepRunning = false;
           break;
         default:
@@ -88,7 +88,8 @@ public class Main {
 
   }
 
-  public void getTotal() {
+  public void getTotalOfDay() {
+
   }
 }
 
