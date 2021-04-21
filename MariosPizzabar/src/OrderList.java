@@ -1,6 +1,9 @@
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
 
 //
 public class OrderList {
@@ -10,7 +13,7 @@ public class OrderList {
   public void addOrder(PizzaMenu menu) {
     int orderNr = generateOrderNr();
     String time = generateDateTime();
-    ArrayList<Pizza> order= convertNrToPizza(menu);
+    ArrayList<Pizza> order = convertNrToPizza(menu);
 
     if (order.isEmpty()) {
       ui.printString("Order is annulled");
@@ -77,6 +80,11 @@ public class OrderList {
       ordered.add(menu.pizzaMenu.get(temp - 1));
     }
     return ordered;
+  }
+
+  public ArrayList sortOrderByTime(ArrayList orderList){
+    orderList.sort(Comparator.naturalOrder());
+    return orderList;
   }
 
   public ArrayList<Order> getOrders() {
