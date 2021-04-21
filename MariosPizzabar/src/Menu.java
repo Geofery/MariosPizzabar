@@ -37,11 +37,6 @@ public class Menu {
   }
 
   public int readChoice() {
-    /*Scanner scanner = new Scanner(System.in);
-    while (!scanner.hasNextInt()) {
-      ui.getString(getLeadText());
-      scanner.next();
-    }*/
     return ui.getScanInt();
   }
 }

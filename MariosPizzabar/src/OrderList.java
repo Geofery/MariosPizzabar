@@ -7,20 +7,17 @@ public class OrderList {
   private ArrayList<Order> orderList = new ArrayList<>();
   private UI ui = new UI();
 
-  private ArrayList<Pizza> orderedPizzas = new ArrayList<>();
-
   public void addOrder(PizzaMenu menu) {
     int orderNr = generateOrderNr();
     String time = generateDateTime();
     ArrayList<Pizza> order= convertNrToPizza(menu);
 
-    if (order == null) {
+    if (order.isEmpty()) {
       ui.printString("Order is annulled");
+      return;
 
-    } else {
-      orderedPizzas = order;
     }
-    orderList.add(new Order(orderNr, time, orderedPizzas));
+    orderList.add(new Order(orderNr, time, order));
   }
 
   public int generateOrderNr() {
@@ -75,11 +72,12 @@ public class OrderList {
 
   public ArrayList convertNrToPizza(PizzaMenu menu) {
     ArrayList<Integer> pizzaList = addPizza(menu);
+    ArrayList<Pizza> ordered = new ArrayList<>();
     for (int i = 0; i < pizzaList.size(); i++) {
       int temp = pizzaList.get(i);
-      orderedPizzas.add(menu.pizzaMenu.get(temp - 1));
+      ordered.add(menu.pizzaMenu.get(temp - 1));
     }
-    return orderedPizzas;
+    return ordered;
   }
 
   public ArrayList<Order> getOrders() {
@@ -92,7 +90,5 @@ public class OrderList {
   public String toString() {
     return "Orders\n " + orderedPizzas.toString().replace("[", "")
         .replace("]", "").replace(",", "\n") + "\n";
-  }
-
- */
+  }*/
 }
