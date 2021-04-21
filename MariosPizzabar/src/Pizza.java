@@ -1,6 +1,3 @@
-import java.util.ArrayList;
-import java.util.Scanner;
-
 public class Pizza {
   private String name;
   private int number;

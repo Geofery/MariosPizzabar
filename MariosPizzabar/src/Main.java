@@ -1,11 +1,13 @@
 public class Main {
     UI ui = new UI();
-    
+    //hej
+
     public static void main(String[] args) {
         new Main().run();
     }
 
     public void run() {
+        OrderList orderList = new OrderList();
         Menu digitalMenu = new Menu("Marios pizzabar", "Please choose: ");
         boolean keepRunning;
         int choice;
@@ -21,11 +23,11 @@ public class Main {
                     break;
                 case 2:
                     ui.getString("Orderlist");
-                    showOrderlist();
+                    showOrderList(orderList);
                     break;
                 case 3:
                     ui.getString("New Order");
-                    addOrder();
+                    addOrder(orderList);
                     break;
                 case 4:
                     ui.getString("Remove Order");
@@ -60,17 +62,20 @@ public class Main {
         }
     }
 
-    public void showOrderlist() {
+    public void showOrderList(OrderList orderList) {
+    for(int i = 0; i < orderList.getOrderList().size();i++){
+        ui.getString(orderList.getOrderList().get(i).toString());
+    }
 
     }
 
-    public void addOrder() {
+    public void addOrder(OrderList orderList) {
         PizzaMenu menu = new PizzaMenu();
-        OrderList orderlist = new OrderList();
-        orderlist.addOrder(menu);
+
+        orderList.addOrder(menu);
         //Ved godt den ikke skal printes her. Det var for at teste.
         //Printstatement nedenunder skal op i "ShowOrderList" ovenover :) 
-        ui.getString(orderlist.toString());
+        ui.getString(orderList.toString());
     }
 
     public void removeOrder() {

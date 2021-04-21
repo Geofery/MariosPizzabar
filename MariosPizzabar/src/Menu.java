@@ -22,7 +22,7 @@ public class Menu {
         this.menuItems = menuItems;
     }
 
-    public String getLeadText() {
+   public String getLeadText() {
         return leadText;
     }
 

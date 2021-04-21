@@ -73,10 +73,23 @@ public class OrderList {
     return orderedPizzas;
 }
 
+public ArrayList<Order> getOrderList(){
+    return orderList;
+
+}
+
+  @Override
+  public String toString() {
+    return "orderList: " + orderList;
+  }
+
+/*
   @Override
   //Til ære for dig Michala :):):)!
   public String toString() {
     return "Orders\n " + orderedPizzas.toString().replace("[", "")
         .replace("]", "").replace(",", "\n") + "\n";
   }
+
+ */
 }
