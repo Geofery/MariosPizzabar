@@ -65,9 +65,6 @@ public class OrderList {
     return pizzaList;
   }
 
-  //Denne metode tager pizzaList fra addPizza metoden (August og Jens).
-  //Løber den igennem og finder hver indeks position i PizzaMenu og ligger dem i en Arrayliste ved navn Orderedpizzas.
-  //Den bliver "kaldt" når metoden addOrder bliver kaldt.
   public ArrayList addPizzaToOrder(PizzaMenu menu) {
     for (int i = 0; i < pizzaList.size(); i++) {
       int temp = pizzaList.get(i);
