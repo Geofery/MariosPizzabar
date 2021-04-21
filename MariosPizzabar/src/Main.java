@@ -8,17 +8,7 @@ public class Main {
     }
 
     public void run() {
-        String[] menuItems = {
-                "1. Show menu",
-                "2. Show orderlist",
-                "3. Add order",
-                "4. Remove order",
-                "5. Order finished",
-                "6. Show statistics",
-                "9. Quit"
-        };
-
-        Menu digitalMenu = new Menu("Marios pizzabar", "Please choose: ", menuItems);
+        Menu digitalMenu = new Menu("Marios pizzabar", "Please choose: ");
         boolean keepRunning;
         int choice;
 

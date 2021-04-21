@@ -5,9 +5,20 @@ public class Menu {
 
     UI ui = new UI();
 
-    public Menu(String menuHeader, String leadText, String[] menuItems) {
+    public Menu(String menuHeader, String leadText) {
         this.menuHeader = menuHeader;
         this.leadText = leadText;
+
+        String[] menuItems = {
+            "1. Show menu",
+            "2. Show orderlist",
+            "3. Add order",
+            "4. Remove order",
+            "5. Order finished",
+            "6. Show statistics",
+            "9. Quit"
+        };
+
         this.menuItems = menuItems;
     }
 
