@@ -1,7 +1,6 @@
 public class Main {
     UI ui = new UI();
-    //hej
-
+    
     public static void main(String[] args) {
         new Main().run();
     }
