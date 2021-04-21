@@ -11,8 +11,9 @@ public class OrderList {
   public void addOrder(PizzaMenu menu) {
     int orderNr = generateOrderNr();
     String time = generateDateTime();
-    ArrayList pizzaList = addPizza(menu);
-    addPizzaToOrder(menu);
+    ArrayList pizzaList = convertNrToPizza(menu);
+
+    orderList.add(new Order(orderNr, time, pizzaList));
   }
 
   public int generateOrderNr() {
@@ -65,7 +66,8 @@ public class OrderList {
     return pizzaList;
   }
 
-  public ArrayList addPizzaToOrder(PizzaMenu menu) {
+  public ArrayList convertNrToPizza(PizzaMenu menu) {
+    addPizza(menu);
     for (int i = 0; i < pizzaList.size(); i++) {
       int temp = pizzaList.get(i);
       orderedPizzas.add(menu.pizzaMenu.get(temp - 1));
@@ -73,15 +75,10 @@ public class OrderList {
     return orderedPizzas;
 }
 
-public ArrayList<Order> getOrderList(){
+public ArrayList<Order> getOrders(){
     return orderList;
 
 }
-
-  @Override
-  public String toString() {
-    return "orderList: " + orderList;
-  }
 
 /*
   @Override

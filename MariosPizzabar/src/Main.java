@@ -1,6 +1,5 @@
 public class Main {
   UI ui = new UI();
-  //hej
 
   public static void main(String[] args) {
     new Main().run();
@@ -64,16 +63,13 @@ public class Main {
   }
 
   public void showOrderList(OrderList orderList) {
-    for (int i = 0; i < orderList.getOrderList().size(); i++) {
-      ui.getString(orderList.getOrderList().get(i).toString());
+    for (int i = 0; i < orderList.getOrders().size(); i++) {
+      ui.getString(orderList.getOrders().get(i).toString());
     }
   }
 
   public void addOrder(OrderList orderList, PizzaMenu menu) {
     orderList.addOrder(menu);
-    //Ved godt den ikke skal printes her. Det var for at teste.
-    //Printstatement nedenunder skal op i "ShowOrderList" ovenover :)
-    ui.getString(orderList.toString());
   }
 
   public void removeOrder(OrderList orderList, PizzaMenu menu) {
