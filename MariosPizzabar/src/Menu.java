@@ -3,11 +3,12 @@ public class Menu {
   private String leadText;
   private String[] menuItems;
 
-  UI ui = new UI();
+  UI ui;
 
-  public Menu(String menuHeader, String leadText) {
+  public Menu(String menuHeader, String leadText, UI ui) {
     this.menuHeader = menuHeader;
     this.leadText = leadText;
+    this.ui = ui;
 
     String[] menuItems = {
         "1. Show menu",
