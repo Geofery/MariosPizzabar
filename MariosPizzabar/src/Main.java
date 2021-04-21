@@ -39,10 +39,6 @@ public class Main {
           removeOrder(orderList);
           break;
         case 5:
-          ui.printString("Finishing Order");
-          finishOrder();
-          break;
-        case 6:
           ui.printString("Statistics");
           showStatistics();
           break;
@@ -67,10 +63,13 @@ public class Main {
   }
 
   public void showOrderList(OrderList orderList) {
+    if (orderList.getOrders().size() == 0) {
+      ui.printString("\nThere are no orders!\n");
+    }
     for (int i = 0; i < orderList.getOrders().size(); i++) {
       ui.printString(orderList.getOrders().get(i).toString());
+      }
     }
-  }
 
   public void addOrder(OrderList orderList, PizzaMenu menu) {
     orderList.addOrder(menu);
@@ -81,10 +80,6 @@ public class Main {
     int orderNr = ui.getScanInt();
 
     orderList.getOrders().remove(orderNr - 1);
-  }
-
-  public void finishOrder() {
-
   }
 
   public void showStatistics() {

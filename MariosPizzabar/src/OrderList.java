@@ -59,7 +59,7 @@ public class OrderList {
       validChoice = true;
       if (choice == 0) {
         validChoice = false;
-      } else if (choice <= menu.getPizzaMenu().size() + 1 && choice >= 1) {
+      } else if (choice <= menu.getPizzaMenu().size() && choice >= 1) {
         pizzaList.add(choice);
       } else {
         ui.printString("Wrong input, please enter number from 1 to 30: ");

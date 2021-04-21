@@ -13,8 +13,9 @@ public class Order {
 
   @Override
   public String toString() {
-    return "Order number: " +orderNr +
+    return "\nOrder number: " +orderNr +
         "\nTimestamp: " + localDateTime +
-        "\n orderedPizzas: " + orderedPizzas + "\n";
+        "\n\nPizzas: \n" + orderedPizzas.toString().replace("[", "")
+        .replace("]", "").replace(",", "\n") + "\n";
   }
 }
