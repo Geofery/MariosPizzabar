@@ -1,8 +1,4 @@
-/*import org.junit.jupiter.api.Test;
-
-import javax.swing.*;
-
-import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
 
 class MainTest {
   PizzaMenu menu = new PizzaMenu();
@@ -12,4 +8,4 @@ class MainTest {
   void addOrder() {
 
   }
-}*/
+}

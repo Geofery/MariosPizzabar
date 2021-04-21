@@ -15,7 +15,6 @@ public class OrderList {
     if (order.isEmpty()) {
       ui.printString("Order is annulled");
       return;
-
     }
     orderList.add(new Order(orderNr, time, order));
   }
@@ -48,7 +47,7 @@ public class OrderList {
     return formatDateTime;
   }
 
-  public ArrayList<Integer> addPizza(PizzaMenu menu) {
+  public ArrayList<Integer> addPizzaNr(PizzaMenu menu) {
     ArrayList<Integer> pizzaList = new ArrayList<>();
     boolean validChoice;
     int choice;
@@ -71,7 +70,7 @@ public class OrderList {
   }
 
   public ArrayList convertNrToPizza(PizzaMenu menu) {
-    ArrayList<Integer> pizzaList = addPizza(menu);
+    ArrayList<Integer> pizzaList = addPizzaNr(menu);
     ArrayList<Pizza> ordered = new ArrayList<>();
     for (int i = 0; i < pizzaList.size(); i++) {
       int temp = pizzaList.get(i);
@@ -83,7 +82,6 @@ public class OrderList {
   public ArrayList<Order> getOrders() {
     return orderList;
   }
-
 /*
   @Override
   //Til ære for dig Michala :):):)!
