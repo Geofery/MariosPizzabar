@@ -83,16 +83,12 @@ public class Main {
         ui.printString("\nThere are no orders!\n");
         run();
       }
-
       ui.printString("Please enter order number for removal.");
       int orderToRemove = ui.getScanInt();
 
       if (orderToRemove > orderList.getOrders().size()) {
-
         ui.printString("There's no orderNr on that index");
-
       } else {
-
         orderList.getOrders().remove(orderToRemove - 1);
         ui.printString("Order has successfully been removed");
         removal = false;
