@@ -9,6 +9,7 @@ import java.util.Comparator;
 public class OrderList {
   private ArrayList<Order> orderList = new ArrayList<>();
   private UI ui = new UI();
+  private int total = 0;
 
   public void addOrder(PizzaMenu menu) {
     int orderNr = generateOrderNr();
@@ -20,6 +21,15 @@ public class OrderList {
       return;
     }
     orderList.add(new Order(orderNr, time, order));
+    subTotal(order);
+  }
+
+  public void subTotal(ArrayList<Pizza> order) {
+    int total = 0;
+    for (int i = 0; i < order.size(); i++) {
+      total += order.get(i).getPrice();
+    }
+    this.total += total;
   }
 
   public int generateOrderNr() {
@@ -83,12 +93,16 @@ public class OrderList {
   }
 
   //Skal laves færdig, kan kun ændres ved at ændre time fra en String.
-  public ArrayList sortOrderByTime(ArrayList orderList){
+  public ArrayList sortOrderByTime(ArrayList orderList) {
     orderList.sort(Comparator.naturalOrder());
     return orderList;
   }
 
   public ArrayList<Order> getOrders() {
     return orderList;
+  }
+
+  public int getTotal() {
+    return total;
   }
 }
