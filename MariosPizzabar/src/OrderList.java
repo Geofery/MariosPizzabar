@@ -33,10 +33,19 @@ public class OrderList {
   }
 
   public int generateOrderNr() {
+    //For loop før linje 37 med oderlist.getordernr i stedet for orderlist.size...
     int orderNr = orderList.size() + 1;
+    for (int i = 0; i < orderList.size(); i++) {
+      if (orderNr == orderList.get(i).getOrderNr()) {
+        orderNr += 1;
+        System.out.println("hello world!");
+        return orderNr;
+      } else {
+        System.out.println("hej");
+      }
+    }
     return orderNr;
   }
-
   public LocalDateTime houseOrPhoneOrder() {
     ui.printString("Is it a phone order or a house order? p/h");
     String answer = ui.getScanString().toLowerCase();

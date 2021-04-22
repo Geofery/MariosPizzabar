@@ -12,6 +12,10 @@ public class Order implements Comparable <Order> {
       this.orderedPizzas = orderedPizzas;
   }
 
+  public int getOrderNr() {
+    return orderNr;
+  }
+
   @Override
   public String toString() {
     return "\nOrder number: " + orderNr +
