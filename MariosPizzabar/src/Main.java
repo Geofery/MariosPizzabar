@@ -79,6 +79,7 @@ public class Main {
   }
 
   public void removeOrder(OrderList orderList) {
+    //Oprettes i Main midlertidigt med henblik på at flyttes over i orderList.
     ui.printString("Please enter order number for removal.");
     int orderNr = ui.getScanInt();
 
