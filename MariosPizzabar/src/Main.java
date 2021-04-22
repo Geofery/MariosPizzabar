@@ -106,7 +106,7 @@ public class Main {
   }
 
   public void getTotalOfDay(OrderList orderList) {
-    orderList
+    ui.printTotal(orderList.getTotal());
   }
 }
 

@@ -21,6 +21,10 @@ public class UI {
     System.out.println(message);
   }
 
+  public void printTotal(int message) {
+    System.out.println(message + "kr.");
+  }
+
   public String getScanString() {
     return scan.nextLine();
   }
