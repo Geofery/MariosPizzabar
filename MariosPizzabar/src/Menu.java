@@ -14,7 +14,7 @@ public class Menu {
         "1. Show menu",
         "2. Show orderlist",
         "3. Add order",
-        "4. Remove order",
+        "4. Mark as finished",
         "6. Show statistics",
         "9. Quit"
     };
