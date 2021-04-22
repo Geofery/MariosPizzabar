@@ -46,7 +46,7 @@ public class Main {
                     ui.printString("Quitting...");
                     ui.printString("Have a nice evening!");
                     ui.printString("Your total of the day:");
-                    getTotalOfDay(orderList, menu);
+                    getTotalOfDay(orderList);
                     keepRunning = false;
                     break;
                 default:
@@ -74,7 +74,6 @@ public class Main {
 
     public void addOrder(OrderList orderList, PizzaMenu menu) {
         orderList.addOrder(menu);
-        orderList.
     }
 
     public void removeOrder(OrderList orderList) {
@@ -108,7 +107,8 @@ public class Main {
 
     }
 
-    public void getTotalOfDay(OrderList orderList, PizzaMenu menu) {
+    public void getTotalOfDay(OrderList orderList) {
+        //orderList
 
     }
 }

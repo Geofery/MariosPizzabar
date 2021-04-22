@@ -9,6 +9,7 @@ import java.util.Comparator;
 public class OrderList {
   private ArrayList<Order> orderList = new ArrayList<>();
   private UI ui = new UI();
+  private int total = 0;
 
   public void addOrder(PizzaMenu menu) {
     int orderNr = generateOrderNr();
@@ -22,12 +23,13 @@ public class OrderList {
     orderList.add(new Order(orderNr, time, order));
     subTotal(order);
   }
-  public int subTotal(ArrayList<Pizza> order) {
+
+  public void subTotal(ArrayList<Pizza> order) {
     int total = 0;
     for (int i = 0; i < order.size(); i++) {
       total += order.get(i).getPrice();
     }
-    return total;
+    this.total += total;
   }
 
   public int generateOrderNr() {
@@ -98,5 +100,9 @@ public class OrderList {
 
   public ArrayList<Order> getOrders() {
     return orderList;
+  }
+
+  public int getTotal() {
+    return total;
   }
 }
