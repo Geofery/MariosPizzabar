@@ -35,7 +35,7 @@ public class Main {
                     addOrder(orderList, menu);
                     break;
                 case 4:
-                    ui.printString("Remove Order");
+                    ui.printString("Mark as finished");
                     markOrderReady(orderList);
                     break;
                 case 5:
@@ -106,7 +106,7 @@ public class Main {
     }
 
     public void cancelOrder(){
-        //Laves færdig
+        //Laves færdig fratræk fra total
     }
 
 
