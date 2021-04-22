@@ -82,6 +82,7 @@ public class OrderList {
     return ordered;
   }
 
+  //Skal laves færdig, kan kun ændres ved at ændre time fra en String.
   public ArrayList sortOrderByTime(ArrayList orderList){
     orderList.sort(Comparator.naturalOrder());
     return orderList;
