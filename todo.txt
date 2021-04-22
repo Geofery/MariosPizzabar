@@ -1,0 +1,21 @@
+So what next?
+Removeorder og markasfinished
+Tekstfil: Ordrehistorik
+Tekstfil: Total pr. day
+Fremlæggelse - powerpoint?
+Visual Paradigm - af user diagram.
+Uddeliger main
+
+
+Statistik:
+Total over flere dage?
+Popularitet af pizzaer
+Fil til program - ordrer for dagen overføres til fil efter timestamp.
+Sekundær fil til total?
+Graf over de forskellige dage?
+- track tid, omsætning pr. dag og popularitet af pizza.
+
+
+Fremlæggelse:
+Simulering af dags arbejde
+Piece vi er særligt stolte af -jeff anbefaler arraylister der taler sammen.
