@@ -19,6 +19,11 @@ public class UI {
     orderList.getOrders().sort(Comparator.naturalOrder());
   }
 
+  public void unsortOrderlistByTime(OrderList orderList) {
+    orderList.getOrders().sort(Comparator.reverseOrder());
+    //Hvis reverseOrdrer ikke virker. så lav ny metode som sortere på ordrenr.
+  }
+
   public int getScanInt() {
     return this.getScanInt("Not a valid input");
   }
@@ -34,4 +39,6 @@ public class UI {
   public String getScanString() {
     return scan.nextLine();
   }
+
+
 }

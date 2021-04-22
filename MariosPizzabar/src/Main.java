@@ -70,6 +70,17 @@ public class Main {
             ui.printString("\nThere are no orders!\n");
         }
         ui.sortOrderlistByTime(orderList);
+
+        for (int i = 0; i < orderList.getOrders().size(); i++) {
+            ui.printString(orderList.getOrders().get(i).toString());
+        }
+    }
+
+    public void showOrderListUnfiltered(OrderList orderList) {
+        if (orderList.getOrders().size() == 0) {
+            ui.printString("\nThere are no orders!\n");
+        }
+        ui.unsortOrderlistByTime(orderList);
         for (int i = 0; i < orderList.getOrders().size(); i++) {
             ui.printString(orderList.getOrders().get(i).toString());
         }
@@ -82,7 +93,7 @@ public class Main {
     public void markOrderReady(OrderList orderList) {
         boolean removal = true;
         do {
-            showOrderList(orderList);
+            showOrderListUnfiltered(orderList);
             if (orderList.getOrders().size() == 0) {
                 run();
             } else
@@ -90,19 +101,17 @@ public class Main {
             int orderToRemove = ui.getScanInt();
 
                 if (orderToRemove > orderList.getOrders().size()) {
-
                     ui.printString("There's no orderNr on that index");
-
                 } else {
-
                     orderList.getOrders().remove(orderToRemove - 1);
                     ui.printString("Order has successfully been removed");
                     removal = false;
                 }
-
         }
         while (removal);
 //Læg total ind i fil!
+        //display ordre der bliver filtreret copi af orginal
+        //Slet ordre, sletter fra orginal som ikke er filtreret.
     }
 
     public void cancelOrder(){
