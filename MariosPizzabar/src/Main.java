@@ -1,7 +1,7 @@
 import java.util.Comparator;
 
 public class Main {
-  UI ui;
+ private UI ui;
 
   public Main(UI ui) {
     this.ui = ui;
