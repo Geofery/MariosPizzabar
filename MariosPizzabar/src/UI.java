@@ -15,12 +15,13 @@ public class UI {
     return readInt;
   }
 
-  public void sortOrderlistByTime(OrderList orderList ){
+  public void sortOrderlistByTime(OrderList orderList){
     orderList.getOrders().sort(Comparator.naturalOrder());
   }
 
   public void unsortOrderlistByTime(OrderList orderList) {
-    orderList.getOrders().sort(Comparator.reverseOrder());
+    //orderList.getOrders().sort(Comparator.reverseOrder());
+    orderList.getOrders().sort(Comparator.comparingInt(Order::getOrderNr));
     //Hvis reverseOrdrer ikke virker. så lav ny metode som sortere på ordrenr.
   }
 

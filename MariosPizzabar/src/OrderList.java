@@ -38,10 +38,8 @@ public class OrderList {
     for (int i = 0; i < orderList.size(); i++) {
       if (orderNr == orderList.get(i).getOrderNr()) {
         orderNr += 1;
-        System.out.println("hello world!");
         return orderNr;
       } else {
-        System.out.println("hej");
       }
     }
     return orderNr;
@@ -103,8 +101,8 @@ public class OrderList {
 
   //Skal laves færdig, kan kun ændres ved at ændre time fra en String.
   //Bliver ikke brugt da den er i UI.
- /* public ArrayList sortOrderByTime(ArrayList orderList) {
-    orderList.sort(Comparator.naturalOrder());
+ /* public ArrayList sortOrderByNr(ArrayList orderList, int orderNr) {
+    orderList.orderNr().sort(Comparator.naturalOrder());
     return orderList;
   }*/
 

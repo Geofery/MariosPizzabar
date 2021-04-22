@@ -1,3 +1,5 @@
+import java.util.Comparator;
+
 public class Main {
     private UI ui;
 
@@ -93,7 +95,7 @@ public class Main {
     public void markOrderReady(OrderList orderList) {
         boolean removal = true;
         do {
-            showOrderListUnfiltered(orderList);
+           showOrderListUnfiltered(orderList);
             if (orderList.getOrders().size() == 0) {
                 run();
             } else
