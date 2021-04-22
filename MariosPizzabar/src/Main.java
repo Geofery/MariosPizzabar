@@ -79,8 +79,9 @@ public class Main {
     public void removeOrder(OrderList orderList) {
         boolean removal = true;
         do {
+            showOrderList(orderList);
             if (orderList.getOrders().size() == 0) {
-                ui.printString("\nThere are no orders!\n");
+                run();
             } else
             ui.printString("Please enter order number for removal.");
             int orderToRemove = ui.getScanInt();
@@ -107,7 +108,7 @@ public class Main {
     }
 
     public void getTotalOfDay(OrderList orderList, PizzaMenu menu) {
-
+        ui.printTotal(orderList.getTotal());
     }
 }
 

@@ -93,10 +93,11 @@ public class OrderList {
   }
 
   //Skal laves færdig, kan kun ændres ved at ændre time fra en String.
-  public ArrayList sortOrderByTime(ArrayList orderList) {
+  //Bliver ikke brugt da den er i UI.
+ /* public ArrayList sortOrderByTime(ArrayList orderList) {
     orderList.sort(Comparator.naturalOrder());
     return orderList;
-  }
+  }*/
 
   public ArrayList<Order> getOrders() {
     return orderList;
