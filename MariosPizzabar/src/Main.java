@@ -1,5 +1,5 @@
 public class Main {
-  UI ui;
+ private UI ui;
 
   public Main(UI ui) {
     this.ui = ui;
@@ -77,6 +77,7 @@ public class Main {
   }
 
   public void removeOrder(OrderList orderList) {
+    //Oprettes i Main midlertidigt med henblik på at flyttes over i orderList.
     ui.printString("Please enter order number for removal.");
     int orderNr = ui.getScanInt();
 
