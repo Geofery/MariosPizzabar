@@ -36,12 +36,15 @@ public class Main {
                     break;
                 case 4:
                     ui.printString("Remove Order");
-                    removeOrder(orderList);
+                    markOrderReady(orderList);
                     break;
                 case 5:
                     ui.printString("Statistics");
                     showStatistics();
                     break;
+                case 6:
+                    ui.printString("Cancel Order");
+                    //Lav logik i metode
                 case 9:
                     ui.printString("Quitting...");
                     ui.printString("Have a nice evening!");
@@ -76,7 +79,7 @@ public class Main {
         orderList.addOrder(menu);
     }
 
-    public void removeOrder(OrderList orderList) {
+    public void markOrderReady(OrderList orderList) {
         boolean removal = true;
         do {
             showOrderList(orderList);
@@ -99,7 +102,11 @@ public class Main {
 
         }
         while (removal);
+//Læg total ind i fil!
+    }
 
+    public void cancelOrder(){
+        //Laves færdig
     }
 
 
