@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.Scanner;
 
 public class UI {
@@ -11,6 +13,10 @@ public class UI {
     int readInt = scan.nextInt();
     scan.nextLine();
     return readInt;
+  }
+
+  public void sortOrderlistByTime(OrderList orderList ){
+    orderList.getOrders().sort(Comparator.naturalOrder());
   }
 
   public int getScanInt() {

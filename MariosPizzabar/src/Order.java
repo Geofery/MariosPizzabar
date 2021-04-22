@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 
-public class Order {
+
+public class Order implements Comparable <Order> {
     private int orderNr;
     private String localDateTime;
     private ArrayList<Pizza> orderedPizzas;
@@ -17,5 +18,14 @@ public class Order {
         "\nTimestamp: " + localDateTime +
         "\n\nPizzas:\n" + orderedPizzas.toString().replace("[", "")
         .replace("]", "").replace(",", "\n") + "\n";
+  }
+
+  @Override
+  public int compareTo(Order o) {
+    return this.localDateTime.compareTo(o.getLocalDateTime());
+  }
+
+  private String getLocalDateTime() {
+    return localDateTime;
   }
 }
