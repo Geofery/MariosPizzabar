@@ -77,11 +77,21 @@ public class Main {
   }
 
   public void removeOrder(OrderList orderList) {
-    //Oprettes i Main midlertidigt med henblik på at flyttes over i orderList.
-    ui.printString("Please enter order number for removal.");
-    int orderNr = ui.getScanInt();
+      public void removeOrder(OrderList orderList) {
+          boolean removal = true;
+          do {
+              ui.printString("Please enter order number for removal.");
+              int orderToRemove = ui.getScanInt();
 
-    orderList.getOrders().remove(orderNr - 1);
+              if (orderToRemove > orderList.getOrders().size()) {
+                  ui.printString("There's no orderNr on that index");
+              } else {
+                  orderList.getOrders().remove(orderToRemove - 1);
+                  ui.printString("Order has successfully been removed");
+                  removal = false;
+              }
+          } while (removal);
+      }
   }
 
   public void showStatistics() {
