@@ -106,10 +106,10 @@ public class Main {
                 if (orderToRemove > orderList.getOrders().size()) {
                     ui.printString("There's no orderNr on that index");
                 } else {
-                    orderList.getOrders().remove(orderToRemove - 1);
+                    }
+                   orderList.getOrders().remove(orderToRemove - 1);
                     ui.printString("Order has successfully been removed");
                     removal = false;
-                }
         }
         while (removal);
 //Læg total ind i fil!
