@@ -1,5 +1,3 @@
-import java.util.Comparator;
-
 public class Main {
  private UI ui;
 

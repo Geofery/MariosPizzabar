@@ -91,11 +91,4 @@ public class OrderList {
   public ArrayList<Order> getOrders() {
     return orderList;
   }
-/*
-  @Override
-  //Til ære for dig Michala :):):)!
-  public String toString() {
-    return "Orders\n " + orderedPizzas.toString().replace("[", "")
-        .replace("]", "").replace(",", "\n") + "\n";
-  }*/
 }
