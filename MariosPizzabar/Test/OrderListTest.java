@@ -7,52 +7,52 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class OrderListTest {
 
-    @Test
-    void addOrder() {
+  @Test
+  void addOrder() {
 
-    }
+  }
 
-    @Test
-    void generateOrderNr() {
+  @Test
+  void generateOrderNr() {
 //Arrange
-        ArrayList<Integer> OrderList = new ArrayList<Integer>();
-        OrderList ordernr = new OrderList();
-        int actual = OrderList.size()+1;
+    ArrayList<Integer> OrderList = new ArrayList<Integer>();
+    OrderList ordernr = new OrderList();
+    int actual = OrderList.size() + 1;
 //Act
-        int expected = 1;
+    int expected = 1;
 
 // Assert
-        assertEquals(expected, actual);
+    assertEquals(expected, actual);
 
-    }
+  }
 
-    @Test
-    void houseOrPhoneOrder() {
-    }
+  @Test
+  void houseOrPhoneOrder() {
+  }
 
-    @Test
-    void generateDateTime() {
+  @Test
+  void generateDateTime() {
 
-        //Arrange
-        LocalDateTime expected = LocalDateTime.now().plusHours(1);
+    //Arrange
+    LocalDateTime expected = LocalDateTime.now().plusHours(1);
 
-        //Act
-        LocalDateTime actual = LocalDateTime.now().plusHours(1);
-        //Assert
+    //Act
+    LocalDateTime actual = LocalDateTime.now().plusHours(1);
+    //Assert
 
-        assertEquals(expected, actual);
+    assertEquals(expected, actual);
 
-    }
+  }
 
-    @Test
-    void addPizza() {
-    }
+  @Test
+  void addPizza() {
+  }
 
-    @Test
-    void convertNrToPizza() {
-    }
+  @Test
+  void convertNrToPizza() {
+  }
 
-    @Test
-    void getOrders() {
-    }
+  @Test
+  void getOrders() {
+  }
 }
