@@ -10,11 +10,7 @@ public class Pizza {
     this.toppings = toppings;
     this.price = price;
   }
-
-  public int getNumber() {
-    return number;
-  }
-
+  
   @Override
   public String toString() {
     return number + "." +
