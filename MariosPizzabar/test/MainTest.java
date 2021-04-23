@@ -1,11 +1,13 @@
 import org.junit.jupiter.api.Test;
 
+import java.io.FileNotFoundException;
+
 class MainTest {
   PizzaMenu menu = new PizzaMenu();
   OrderList orderList = new OrderList();
 
   @Test
-  void addOrder() {
+  void addOrder() throws FileNotFoundException {
     UIStub uiStub = new UIStub();
     Main main = new Main(uiStub);
     uiStub.confirmGetScanInt(3);
