@@ -10,7 +10,7 @@ public class Main {
   }
 
   public void run() {
-    OrderList orderList = new OrderList();
+    OrderList orderList = new OrderList(ui);
     PizzaMenu menu = new PizzaMenu();
 
     Menu digitalMenu = new Menu("Marios pizzabar", "Please choose: ", ui);

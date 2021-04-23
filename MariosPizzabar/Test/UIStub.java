@@ -1,22 +1,23 @@
+import java.util.ArrayList;
 public class UIStub extends UI {
-  private int nextValue;
-  private String nextValueS;
+  private ArrayList<String> anwsers = new ArrayList<>();
+  private ArrayList<Integer> numbers = new ArrayList<>();
 
 
   public int getScanInt() {
-    return nextValue;
+    return this.numbers.remove(0);
   }
 
   public String getScanString() {
-    return nextValueS;
+    return this.anwsers.remove(0);
   }
 
   public void confirmGetScanInt(int nextValue) {
-    this.nextValue = nextValue;
+    this.numbers.add(nextValue);
   }
 
   public void confirmGetScanString(String nextValue) {
-    this.nextValueS = nextValue;
+    this.anwsers.add(nextValue);
 
   }
 }
