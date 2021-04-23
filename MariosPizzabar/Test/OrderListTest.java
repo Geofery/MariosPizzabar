@@ -38,12 +38,11 @@ class OrderListTest {
   @Test
   void generateOrderNr() {
     //Arrange
-    ArrayList<Integer> OrderList = new ArrayList<Integer>();
-    OrderList ordernr = new OrderList(new UIStub());
-    int expected = OrderList.size() + 1;
+    ArrayList<Integer> list = new ArrayList<Integer>();
+    int expected = list.size() + 1;
 
     //Act
-    int actual = ;
+    int actual = orderList.generateOrderNr();
 
     // Assert
     assertEquals(expected, actual);
