@@ -1,6 +1,5 @@
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -51,8 +50,6 @@ class OrderListTest {
   @Test
   void houseOrPhoneOrderP() {
     // Arrange
-    UIStub uiStub= new UIStub();
-    OrderList orderList = new OrderList(uiStub);
     uiStub.confirmGetScanString("p");
     LocalDateTime expected = LocalDateTime.now().plusHours(1);
 
@@ -102,9 +99,5 @@ class OrderListTest {
 
   @Test
   void convertNrToPizza() {
-  }
-
-  @Test
-  void getOrders() {
   }
 }

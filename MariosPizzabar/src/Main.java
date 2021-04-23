@@ -45,7 +45,7 @@ public class Main {
                     break;
                 case 5:
                     ui.printString("Statistics");
-                    showStatistics(orderList, stats);
+                    //showStatistics(orderList, stats);
                     break;
                 case 6:
                     ui.printString("Cancel Order");
@@ -94,7 +94,7 @@ public class Main {
 
     public void addOrder(OrderList orderList, PizzaMenu menu, Statistics stats)  {
         orderList.addOrder(menu);
-        showStatistics(orderList, stats);
+        //showStatistics(orderList, stats);
         System.out.println("hej");
     }
 
