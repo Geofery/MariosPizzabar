@@ -117,10 +117,10 @@ public class Main {
         //Slet ordre, sletter fra orginal som ikke er filtreret.
     }
 
-    public void cancelOrder(){
+    public void cancelOrder(OrderList orderList){
+       //skal finde en måde at tilgå den midlertidige arralist der hedder orders som tilhører den enkelte ordre.
         //Laves færdig fratræk fra total
     }
-
 
     public void showStatistics() {
 
