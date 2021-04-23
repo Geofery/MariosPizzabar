@@ -42,7 +42,6 @@ class OrderListTest {
 
     // Assert
     assertEquals(expected, actual);
-
   }
 
   @Test
@@ -90,7 +89,6 @@ class OrderListTest {
     //Assert
 
     assertEquals(expected, actual);
-
   }
 
   @Test
