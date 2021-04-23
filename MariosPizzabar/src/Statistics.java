@@ -5,7 +5,7 @@ import java.util.Arrays;
 
 public class Statistics {
     private double total;
-    private OrderList orderList = new OrderList();
+    //private OrderList orderList = new OrderList();
     private double VAT = 0.8;
     private double marginCalculator = 0.25;
     private Statistics[] pizzaPointBoard = new Statistics[30];

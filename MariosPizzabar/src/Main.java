@@ -92,9 +92,10 @@ public class Main {
         }
     }
 
-    public void addOrder(OrderList orderList, PizzaMenu menu, Statistics stats) throws FileNotFoundException {
+    public void addOrder(OrderList orderList, PizzaMenu menu, Statistics stats)  {
         orderList.addOrder(menu);
         showStatistics(orderList, stats);
+        System.out.println("hej");
     }
 
     public void markOrderReady(OrderList orderList) throws FileNotFoundException {
@@ -155,16 +156,20 @@ public class Main {
         while (removal);
     }
 
-    public void showStatistics(OrderList orderList, Statistics stats) {
+   /* public void showStatistics(OrderList orderList, Statistics stats) {
         // PrintStream fileOut = new PrintStream("Stats.txt");
 
         for (int i = 0; i < orderList.getOrders().size(); i++) {
-            Statistics pizzaTracker = new Statistics("Pizza nr: " + i++, orderList.getOrders().get(i).getOrderedPizzas().get(i).getNumber());
-            stats.getPizzaPointBoard()[i] = pizzaTracker;
+            for (int j = 0; j < orderList.getOrders().size(); j++) {
+                Statistics pizzaTracker = new Statistics("Pizza nr: " + i++, orderList.getOrders().get(i).getOrderedPizzas().get(j).getNumber());
+                for (int k = 0; k < orderList.getOrders().get(i).getOrderedPizzas().size(); k++) {
+                    stats.getPizzaPointBoard()[k] = pizzaTracker;
+                }
+            }
         }
 
     }
-
+*/
     public void getTotalOfDay(Statistics stats) {
 
     }
