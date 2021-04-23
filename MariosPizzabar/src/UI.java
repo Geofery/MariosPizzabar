@@ -40,6 +40,4 @@ public class UI {
   public String getScanString() {
     return scan.nextLine();
   }
-
-
 }

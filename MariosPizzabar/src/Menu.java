@@ -3,7 +3,7 @@ public class Menu {
   private String leadText;
   private String[] menuItems;
 
-  UI ui;
+  private UI ui;
 
   public Menu(String menuHeader, String leadText, UI ui) {
     this.menuHeader = menuHeader;
