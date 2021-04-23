@@ -1,6 +1,3 @@
-import java.time.LocalDateTime;
-import java.util.Comparator;
-
 public class Main {
     private UI ui;
 
@@ -22,7 +19,7 @@ public class Main {
 
         do {
             digitalMenu.printMenu();
-            choice = digitalMenu.readChoice();
+            choice = ui.getScanInt();
             keepRunning = true;
             switch (choice) {
                 case 1:
@@ -30,8 +27,8 @@ public class Main {
                     showMenu(menu);
                     break;
                 case 2:
-                    ui.printString("Orderlist");
-                    showOrderList(orderList);
+                    ui.printString("Orders");
+                    showOrders(orderList);
                     break;
                 case 3:
                     ui.printString("New Order");
@@ -47,6 +44,7 @@ public class Main {
                     break;
                 case 6:
                     ui.printString("Cancel Order");
+                    cancelOrder(orderList);
                     //Lav logik i metode
                 case 9:
                     ui.printString("Quitting...");
@@ -68,22 +66,22 @@ public class Main {
         }
     }
 
-    public void showOrderList(OrderList orderList) {
+    public void showOrders(OrderList orderList) {
         if (orderList.getOrders().size() == 0) {
             ui.printString("\nThere are no orders!\n");
         }
-        ui.sortOrderlistByTime(orderList);
+        ui.sortOrdersByTime(orderList);
 
         for (int i = 0; i < orderList.getOrders().size(); i++) {
             ui.printString(orderList.getOrders().get(i).toString());
         }
     }
 
-    public void showOrderListUnfiltered(OrderList orderList) {
+    public void showOrdersByOrderNr(OrderList orderList) {
         if (orderList.getOrders().size() == 0) {
             ui.printString("\nThere are no orders!\n");
         }
-        ui.unsortOrderlistByTime(orderList);
+        ui.sortOrdersByOrderNr(orderList);
         for (int i = 0; i < orderList.getOrders().size(); i++) {
             ui.printString(orderList.getOrders().get(i).toString());
         }
@@ -96,20 +94,20 @@ public class Main {
     public void markOrderReady(OrderList orderList) {
         boolean removal = true;
         do {
-           showOrderListUnfiltered(orderList);
+            showOrdersByOrderNr(orderList);
             if (orderList.getOrders().size() == 0) {
                 run();
             } else
-            ui.printString("Please enter order number for removal.");
+                ui.printString("Please enter order number for removal.");
             int orderToRemove = ui.getScanInt();
 
-                if (orderToRemove > orderList.getOrders().size()) {
-                    ui.printString("There's no orderNr on that index");
-                } else {
-                    }
-                   orderList.getOrders().remove(orderToRemove - 1);
-                    ui.printString("Order has successfully been removed");
-                    removal = false;
+            if (orderToRemove > orderList.getOrders().size()) {
+                ui.printString("There's no orderNr on that index");
+            } else {
+            }
+            orderList.getOrders().remove(orderToRemove - 1);
+            ui.printString("Order has successfully been removed");
+            removal = false;
         }
         while (removal);
 //Læg total ind i fil!
@@ -117,8 +115,8 @@ public class Main {
         //Slet ordre, sletter fra orginal som ikke er filtreret.
     }
 
-    public void cancelOrder(OrderList orderList){
-       //skal finde en måde at tilgå den midlertidige arralist der hedder orders som tilhører den enkelte ordre.
+    public void cancelOrder(OrderList orderList) {
+        //skal finde en måde at tilgå den midlertidige arralist der hedder orders som tilhører den enkelte ordre.
         //Laves færdig fratræk fra total
     }
 

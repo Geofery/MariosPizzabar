@@ -15,29 +15,29 @@ public class UI {
     return readInt;
   }
 
-  public void sortOrderlistByTime(OrderList orderList){
-    orderList.getOrders().sort(Comparator.naturalOrder());
-  }
-
-  public void unsortOrderlistByTime(OrderList orderList) {
-    //orderList.getOrders().sort(Comparator.reverseOrder());
-    orderList.getOrders().sort(Comparator.comparingInt(Order::getOrderNr));
-    //Hvis reverseOrdrer ikke virker. så lav ny metode som sortere på ordrenr.
-  }
-
   public int getScanInt() {
     return this.getScanInt("Not a valid input");
   }
 
-  public void printString(String message) {
-    System.out.println(message);
+  public String getScanString() {
+    return scan.nextLine();
+  }
+
+  public void sortOrdersByTime(OrderList orderList){
+    orderList.getOrders().sort(Comparator.naturalOrder());
+  }
+
+  public void sortOrdersByOrderNr(OrderList orderList) {
+    //orderList.getOrders().sort(Comparator.reverseOrder());
+    orderList.getOrders().sort(Comparator.comparingInt(Order::getOrderNr));
+    //Hvis reverseOrdrer ikke virker. så lav ny metode som sortere på ordrenr.
   }
 
   public void printTotal(int message) {
     System.out.println(message + "kr.");
   }
 
-  public String getScanString() {
-    return scan.nextLine();
+  public void printString(String message) {
+    System.out.println(message);
   }
 }

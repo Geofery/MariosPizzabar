@@ -22,10 +22,6 @@ public class Menu {
     this.menuItems = menuItems;
   }
 
-  public String getLeadText() {
-    return leadText;
-  }
-
   public void printMenu() {
     String printMenu = menuHeader + "\n";
     for (int i = 0; i < menuItems.length; i++) {
@@ -34,9 +30,5 @@ public class Menu {
     printMenu += leadText;
 
     ui.printString(printMenu);
-  }
-
-  public int readChoice() {
-    return ui.getScanInt();
   }
 }
