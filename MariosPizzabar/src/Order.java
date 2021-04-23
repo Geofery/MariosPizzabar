@@ -12,7 +12,11 @@ public class Order implements Comparable <Order> {
       this.orderedPizzas = orderedPizzas;
   }
 
-  public int getOrderNr() {
+    public ArrayList<Pizza> getOrderedPizzas() {
+        return orderedPizzas;
+    }
+
+    public int getOrderNr() {
     return orderNr;
   }
 

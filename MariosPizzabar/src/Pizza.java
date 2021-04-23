@@ -16,6 +16,10 @@ public class Pizza {
     return price;
   }
 
+  public int getNumber() {
+    return number;
+  }
+
   @Override
   public String toString() {
     return number + "." + name +
