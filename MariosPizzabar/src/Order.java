@@ -12,11 +12,6 @@ public class Order implements Comparable <Order> {
       this.orderedPizzas = orderedPizzas;
   }
 
-  public Order(int orderNr, String localDateTime){
-    this.orderNr = orderNr;
-    this.localDateTime = localDateTime;
-  }
-
   public int getOrderNr() {
     return orderNr;
   }

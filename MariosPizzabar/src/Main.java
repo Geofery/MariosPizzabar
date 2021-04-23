@@ -92,7 +92,8 @@ public class Main {
     }
 
     public void markOrderReady(OrderList orderList) {
-        boolean removal = true;
+        orderList.getOrders().get(1).getOrderNr();
+        boolean removal;
         do {
             showOrdersByOrderNr(orderList);
             if (orderList.getOrders().size() == 0) {
