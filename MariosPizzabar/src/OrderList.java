@@ -7,8 +7,12 @@ import java.util.Comparator;
 
 public class OrderList {
   private ArrayList<Order> orderList = new ArrayList<>();
-  private UI ui = new UI();
+  private UI ui;
   private int total = 0;
+
+  public OrderList(UI ui) {
+    this.ui = ui;
+  }
 
   public void addOrder(PizzaMenu menu) {
     int orderNr = generateOrderNr();

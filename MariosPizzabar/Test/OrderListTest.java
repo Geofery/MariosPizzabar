@@ -1,3 +1,4 @@
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDateTime;
@@ -7,26 +8,30 @@ import java.util.ArrayList;
 import static org.junit.jupiter.api.Assertions.*;
 
 class OrderListTest {
+  UIStub uiStub;
+  OrderList orderList;
+
+  @BeforeEach
+  void before() {
+    uiStub = new UIStub();
+    orderList = new OrderList(uiStub);
+  }
 
   @Test
   void addOrder() {
     //Arrange
-    int orderNr = 1;
-    String time = "21-04-23 09:58";
-
-    ArrayList<Pizza> pizzas = new ArrayList<>();
-    Pizza pizza = new Pizza("Jens", 1, "ost", 100);
-    pizzas.add(pizza);
-
-    ArrayList<Order> orders = new ArrayList<>();
-    orders.add(new Order(orderNr, time, pizzas));
-
+    PizzaMenu menu = new PizzaMenu();
+    uiStub.confirmGetScanString("p");
+    uiStub.confirmGetScanInt(30);
+    uiStub.confirmGetScanInt(1);
+    uiStub.confirmGetScanInt(0);
     int expected = 1;
 
     //Act
-    int actual = orders.size();
+    orderList.addOrder(menu);
 
     // Assert
+    int actual = orderList.getOrders().size();
     assertEquals(expected, actual);
   }
 
@@ -34,11 +39,11 @@ class OrderListTest {
   void generateOrderNr() {
     //Arrange
     ArrayList<Integer> OrderList = new ArrayList<Integer>();
-    OrderList ordernr = new OrderList();
-    int actual = OrderList.size() + 1;
+    OrderList ordernr = new OrderList(new UIStub());
+    int expected = OrderList.size() + 1;
 
     //Act
-    int expected = 1;
+    int actual = ;
 
     // Assert
     assertEquals(expected, actual);
@@ -46,33 +51,34 @@ class OrderListTest {
 
   @Test
   void houseOrPhoneOrderP() {
-    //husk at ændre tid og dato når du tester til din ejen pc tid
-    String expectedP = "21-04-23 11:38";
+    // Arrange
+    UIStub uiStub= new UIStub();
+    OrderList orderList = new OrderList(uiStub);
+    uiStub.confirmGetScanString("p");
+    LocalDateTime expected = LocalDateTime.now().plusHours(1);
 
-    LocalDateTime actualp = LocalDateTime.now().plusHours(1);
+    // Act
+    LocalDateTime actual = orderList.houseOrPhoneOrder();
+
+    // Assert
     DateTimeFormatter time = DateTimeFormatter.ofPattern("yy-MM-dd HH:mm");
-
-    //Act
-    String actual = actualp.format(time);
-
-    //Assert
-    assertEquals(expectedP, actual);
+    assertEquals(expected.format(time), actual.format(time));
   }
 
   @Test
   void houseOrPhoneOrderH() {
-    //Arrange
-    //husk at ændre tid og dato når du tester til din ejen pc tid
-    String expectedH = "21-04-23 11:06";
+    // Arrange
+    UIStub uiStub= new UIStub();
+    OrderList orderList = new OrderList(uiStub);
+    uiStub.confirmGetScanString("h");
+    LocalDateTime expected = LocalDateTime.now().plusMinutes(25);
 
-    LocalDateTime actualh = LocalDateTime.now().plusMinutes(25);
+    // Act
+    LocalDateTime actual = orderList.houseOrPhoneOrder();
+
+    // Assert
     DateTimeFormatter time = DateTimeFormatter.ofPattern("yy-MM-dd HH:mm");
-
-    //Act
-    String actual = actualh.format(time);
-
-    //Assert
-    assertEquals(expectedH, actual);
+    assertEquals(expected.format(time), actual.format(time));
   }
 
   @Test

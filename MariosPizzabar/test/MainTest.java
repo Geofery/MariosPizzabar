@@ -3,8 +3,6 @@ import org.junit.jupiter.api.Test;
 import java.io.FileNotFoundException;
 
 class MainTest {
-  PizzaMenu menu = new PizzaMenu();
-  OrderList orderList = new OrderList();
 
   @Test
   void addOrder() throws FileNotFoundException {

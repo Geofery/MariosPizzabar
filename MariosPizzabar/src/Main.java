@@ -14,7 +14,7 @@ public class Main {
     }
 
     public void run() throws FileNotFoundException {
-        OrderList orderList = new OrderList();
+        OrderList orderList = new OrderList(ui);
         PizzaMenu menu = new PizzaMenu();
         Statistics stats = new Statistics();
 
