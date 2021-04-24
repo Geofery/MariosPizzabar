@@ -1,14 +1,10 @@
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.Comparator;
 
 public class OrderList {
   private ArrayList<Order> orderList = new ArrayList<>();
   private UI ui;
-  private int total = 0;
   private int nextOrderNr = 1;
 
   public OrderList(UI ui) {
@@ -25,20 +21,12 @@ public class OrderList {
       return;
     }
     orderList.add(new Order(orderNr, time, order));
-    subTotal(order);
-  }
-
-  public void subTotal(ArrayList<Pizza> order) {
-    int total = 0;
-    for (int i = 0; i < order.size(); i++) {
-      total += order.get(i).getPrice();
-    }
-    this.total += total;
   }
 
   public int generateOrderNr() {
     return nextOrderNr++;
   }
+
   public LocalDateTime houseOrPhoneOrder() {
     ui.printString("Is it a phone order or a house order? p/h");
     String answer = ui.getScanString().toLowerCase();
@@ -103,9 +91,5 @@ public class OrderList {
 
   public ArrayList<Order> getOrders() {
     return orderList;
-  }
-
-  public int getTotal() {
-    return total;
   }
 }

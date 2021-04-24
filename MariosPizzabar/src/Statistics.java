@@ -23,8 +23,7 @@ public class Statistics {
     }
 
     public double totalRevenue(OrderList orderList) {
-        total = orderList.getTotal();
-        return total;
+        return 0;
     }
 
     public double margin() {

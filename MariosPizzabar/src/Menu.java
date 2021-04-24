@@ -16,7 +16,7 @@ public class Menu {
                 "3. Add order",
                 "4. Mark as finished",
                 "5. Show statistics",
-                "6.Cancel Order",
+                "6. Cancel Order",
                 "9. Quit"
         };
 

@@ -1,20 +1,18 @@
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.PrintStream;
+import java.util.ArrayList;
 
 public class Main {
     private UI ui;
+    private ArrayList<Order> finishedOrders = new ArrayList<>();
 
     public Main(UI ui) {
         this.ui = ui;
-        loadFinishedOrders();
     }
 
-    public static void main(String[] args) throws FileNotFoundException {
+    public static void main(String[] args) {
         new Main(new UI()).run();
     }
 
-    public void run() throws FileNotFoundException {
+    public void run() {
         OrderList orderList = new OrderList(ui);
         PizzaMenu menu = new PizzaMenu();
         Statistics stats = new Statistics();
@@ -51,12 +49,12 @@ public class Main {
                 case 6:
                     ui.printString("Cancel Order");
                     cancelOrder(orderList);
-                    //Lav logik i metode
+                    break;
                 case 9:
                     ui.printString("Quitting...");
                     ui.printString("Have a nice evening!");
                     ui.printString("Your total of the day:");
-                    getTotalOfDay(stats);
+                    getTotalOfDay();
                     keepRunning = false;
                     break;
                 default:
@@ -113,49 +111,30 @@ public class Main {
             }
         } while (order == null);
 
-        try {
-            PrintStream finishedOrders = new PrintStream(new File("finishedOrders.txt"));
-            finishedOrders.println(order);
-        } catch (FileNotFoundException e) {
-            ui.printString("Failed in finding file.");
-            return;
-        }
+        finishedOrders.add(order);
         orderList.getOrders().remove(order);
 
         ui.printString("Order has successfully been finished");
     }
 
-    public void loadFinishedOrders() {
+    public void cancelOrder(OrderList orderList) {
+        int orderNr;
+        Order order;
 
-    }
-
-    public void cancelOrder(OrderList orderList) throws FileNotFoundException {
-        //skal finde en måde at tilgå den midlertidige arralist der hedder orders som tilhører den enkelte ordre.
-        //Laves færdig fratræk fra total
-        boolean removal;
         do {
-            showOrdersByOrderNr(orderList);
-            if (orderList.getOrders().size() == 0) {
-                run();
-            } else
-                ui.printString("Please enter order you want to cancel.");
-            int orderToRemove = ui.getScanInt();
-
-     /* for (int i = 0; i < orderList.getOrders().size(); i++) {
-        if (orderToRemove > orderList.getOrders().get(i).getOrderNr()) {
-          ui.printString("There's no such order number");
-        }
-      }*/
+            ui.printString("Enter ordernumber");
+            orderNr = ui.getScanInt("This is not a number.");
+            order = null;
             for (int i = 0; i < orderList.getOrders().size(); i++) {
-                if (orderToRemove == orderList.getOrders().get(i).getOrderNr()) {
-                    orderList.getOrders().remove(i);
+                if (orderList.getOrders().get(i).getOrderNr() == orderNr) {
+                    order = orderList.getOrders().get(i);
                 }
             }
-            ui.printString("Order has successfully been removed");
-            removal = false;
-            //Her skal der laves en -total som fjerner den enkelte ordres total fra overall Total.
-        }
-        while (removal);
+        } while (order == null);
+
+        orderList.getOrders().remove(order);
+
+        ui.printString("Order is cancelled");
     }
 
     /* public void showStatistics(OrderList orderList, Statistics stats) {
@@ -172,8 +151,15 @@ public class Main {
 
      }
  */
-    public void getTotalOfDay(Statistics stats) {
-
+    public void getTotalOfDay() {
+        int total = 0;
+        for (int i = 0; i < finishedOrders.size(); i++) {
+            ArrayList<Pizza> finishedPizzas = finishedOrders.get(i).getOrderedPizzas();
+            for (int j = 0; j < finishedPizzas.size(); j++) {
+                total += finishedPizzas.get(j).getPrice();
+            }
+        }
+        ui.printTotal(total);
     }
 }
 
