@@ -1,12 +1,13 @@
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintStream;
-import java.lang.reflect.Array;
 
 public class Main {
     private UI ui;
 
     public Main(UI ui) {
         this.ui = ui;
+        loadFinishedOrders();
     }
 
     public static void main(String[] args) throws FileNotFoundException {
@@ -41,7 +42,7 @@ public class Main {
                     break;
                 case 4:
                     ui.printString("Mark as finished");
-                    markOrderReady(orderList);
+                    markAsFinished(orderList);
                     break;
                 case 5:
                     ui.printString("Statistics");
@@ -92,39 +93,40 @@ public class Main {
         }
     }
 
-    public void addOrder(OrderList orderList, PizzaMenu menu, Statistics stats)  {
+    public void addOrder(OrderList orderList, PizzaMenu menu, Statistics stats) {
         orderList.addOrder(menu);
         //showStatistics(orderList, stats);
-        System.out.println("hej");
     }
 
-    public void markOrderReady(OrderList orderList) throws FileNotFoundException {
-        boolean removal;
-        do {
-            showOrdersByOrderNr(orderList);
-            if (orderList.getOrders().size() == 0) {
-                run();
-            } else
-                ui.printString("Please enter order number for removal.");
-            int orderToRemove = ui.getScanInt();
+    public void markAsFinished(OrderList orderList) {
+        int orderNr;
+        Order order;
 
-     /* for (int i = 0; i < orderList.getOrders().size(); i++) {
-        if (orderToRemove > orderList.getOrders().get(i).getOrderNr()) {
-          ui.printString("There's no such order number");
-        }
-      }*/
+        do {
+            ui.printString("Enter ordernumber");
+            orderNr = ui.getScanInt("This is not a number.");
+            order = null;
             for (int i = 0; i < orderList.getOrders().size(); i++) {
-                if (orderToRemove == orderList.getOrders().get(i).getOrderNr()) {
-                    orderList.getOrders().remove(i);
+                if (orderList.getOrders().get(i).getOrderNr() == orderNr) {
+                    order = orderList.getOrders().get(i);
                 }
             }
-            ui.printString("Order has successfully been removed");
-            removal = false;
+        } while (order == null);
+
+        try {
+            PrintStream finishedOrders = new PrintStream(new File("finishedOrders.txt"));
+            finishedOrders.println(order);
+        } catch (FileNotFoundException e) {
+            ui.printString("Failed in finding file.");
+            return;
         }
-        while (removal);
-//Læg total ind i fil!
-        //display ordre der bliver filtreret copi af orginal
-        //Slet ordre, sletter fra orginal som ikke er filtreret.
+        orderList.getOrders().remove(order);
+
+        ui.printString("Order has successfully been finished");
+    }
+
+    public void loadFinishedOrders() {
+
     }
 
     public void cancelOrder(OrderList orderList) throws FileNotFoundException {
@@ -156,20 +158,20 @@ public class Main {
         while (removal);
     }
 
-   /* public void showStatistics(OrderList orderList, Statistics stats) {
-        // PrintStream fileOut = new PrintStream("Stats.txt");
+    /* public void showStatistics(OrderList orderList, Statistics stats) {
+         // PrintStream fileOut = new PrintStream("Stats.txt");
 
-        for (int i = 0; i < orderList.getOrders().size(); i++) {
-            for (int j = 0; j < orderList.getOrders().size(); j++) {
-                Statistics pizzaTracker = new Statistics("Pizza nr: " + i++, orderList.getOrders().get(i).getOrderedPizzas().get(j).getNumber());
-                for (int k = 0; k < orderList.getOrders().get(i).getOrderedPizzas().size(); k++) {
-                    stats.getPizzaPointBoard()[k] = pizzaTracker;
-                }
-            }
-        }
+         for (int i = 0; i < orderList.getOrders().size(); i++) {
+             for (int j = 0; j < orderList.getOrders().size(); j++) {
+                 Statistics pizzaTracker = new Statistics("Pizza nr: " + i++, orderList.getOrders().get(i).getOrderedPizzas().get(j).getNumber());
+                 for (int k = 0; k < orderList.getOrders().get(i).getOrderedPizzas().size(); k++) {
+                     stats.getPizzaPointBoard()[k] = pizzaTracker;
+                 }
+             }
+         }
 
-    }
-*/
+     }
+ */
     public void getTotalOfDay(Statistics stats) {
 
     }

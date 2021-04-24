@@ -28,9 +28,7 @@ public class UI {
   }
 
   public void sortOrdersByOrderNr(OrderList orderList) {
-    //orderList.getOrders().sort(Comparator.reverseOrder());
     orderList.getOrders().sort(Comparator.comparingInt(Order::getOrderNr));
-    //Hvis reverseOrdrer ikke virker. så lav ny metode som sortere på ordrenr.
   }
 
   public void printTotal(int message) {

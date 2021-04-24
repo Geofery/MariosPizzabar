@@ -9,6 +9,7 @@ public class OrderList {
   private ArrayList<Order> orderList = new ArrayList<>();
   private UI ui;
   private int total = 0;
+  private int nextOrderNr = 1;
 
   public OrderList(UI ui) {
     this.ui = ui;
@@ -36,16 +37,7 @@ public class OrderList {
   }
 
   public int generateOrderNr() {
-    //For loop før linje 37 med oderlist.getordernr i stedet for orderlist.size...
-    int orderNr = orderList.size() + 1;
-    for (int i = 0; i < orderList.size(); i++) {
-      if (orderNr == orderList.get(i).getOrderNr()) {
-        orderNr += 1;
-        return orderNr;
-      } else {
-      }
-    }
-    return orderNr;
+    return nextOrderNr++;
   }
   public LocalDateTime houseOrPhoneOrder() {
     ui.printString("Is it a phone order or a house order? p/h");

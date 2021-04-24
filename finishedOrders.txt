@@ -1,0 +1,22 @@
+
+Order number: 1
+Timestamp: 21-04-24 13:07
+
+Pizzas:
+26.Provencale
+ Toppings:
+ Pork
+ Mushroom
+ Garlic
+ Onion
+ 115kr.
+
+ 22.Tropicana
+ Toppings:
+ Ham
+ Banana
+ Pineapple
+ Curry
+ 145kr.
+
+
