@@ -24,6 +24,6 @@ class MainTest {
 
   @Test
   void getTotalOfDay() {
-    
+
   }
 }
