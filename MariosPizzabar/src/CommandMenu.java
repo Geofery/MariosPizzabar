@@ -38,7 +38,7 @@ public class CommandMenu {
           break;
         case 4:
           ui.printString("Mark as finished");
-          manageOrders.markAsFinished(orderList, ui, finishedOrders, tui);
+          manageOrders.markFinished(orderList, ui, finishedOrders, tui);
           break;
         case 5:
           ui.printString("Statistics");
@@ -55,7 +55,7 @@ public class CommandMenu {
           keepRunning = false;
           break;
         default:
-          ui.printString("You chose poorly... Try again!");
+          ui.printString("You chose poorly... Try again fool!");
           break;
       }
     } while (keepRunning);

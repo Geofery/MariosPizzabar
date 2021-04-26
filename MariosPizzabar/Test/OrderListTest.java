@@ -79,8 +79,7 @@ class OrderListTest {
   }
 
   @Test
-  void generateDateTimePhone() {
-
+  void generateTimePhone() {
     //Arrange husk at ændre tid og dato når du tester til din ejen pc tid
     LocalDateTime expected1 = LocalDateTime.now().plusHours(1);
     DateTimeFormatter time = DateTimeFormatter.ofPattern("yy-MM-dd HH:mm");
@@ -89,15 +88,13 @@ class OrderListTest {
 
     //Act
     String actual = orderList.generateDateTime();
+
     //Assert
-
     assertEquals(expected, actual);
-
   }
 
   @Test
-  void generateDateTimeHouse() {
-
+  void generateTimeHouse() {
     //Arrange husk at ændre tid og dato når du tester til din ejen pc tid
     LocalDateTime expected1 = LocalDateTime.now().plusMinutes(25);
     DateTimeFormatter time = DateTimeFormatter.ofPattern("yy-MM-dd HH:mm");
@@ -106,18 +103,18 @@ class OrderListTest {
 
     //Act
     String actual = orderList.generateDateTime();
+
     //Assert
-
     assertEquals(expected, actual);
-
   }
 
   @Test
   void addPizza() {
-
+    //NOPE!
   }
 
   @Test
   void convertNrToPizza() {
+    //NOPE!
   }
 }

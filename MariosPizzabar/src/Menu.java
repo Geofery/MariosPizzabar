@@ -11,13 +11,13 @@ public class Menu {
         this.ui = ui;
 
         String[] menuItems = {
-                "1. Show menu",
-                "2. Show orderlist",
-                "3. Add order",
-                "4. Mark as finished",
-                "5. Show statistics",
-                "6. Cancel Order",
-                "9. Quit"
+                "1. Show menu.",
+                "2. Show order list.",
+                "3. Add order.",
+                "4. Mark as finished.",
+                "5. Show statistics.",
+                "6. Cancel Order.",
+                "9. Quit!"
         };
 
         this.menuItems = menuItems;

@@ -6,14 +6,14 @@ public class ManageOrders {
     orderList.addOrder(menu);
   }
 
-  public void markAsFinished(OrderList orderList, UI ui, ArrayList<Order> finishedOrders, TUI tui) {
+  public void markFinished(OrderList orderList, UI ui, ArrayList<Order> finishedOrders, TUI tui) {
     int orderNr;
     Order order;
     tui.showOrdersByOrderNr(orderList, ui);
 
     do {
-      ui.printString("Enter ordernumber");
-      orderNr = ui.getScanInt("This is not a number.");
+      ui.printString("Enter order number");
+      orderNr = ui.getScanInt("This is not a number!");
       order = null;
       for (int i = 0; i < orderList.getOrders().size(); i++) {
         if (orderList.getOrders().get(i).getOrderNr() == orderNr) {
@@ -25,7 +25,7 @@ public class ManageOrders {
     finishedOrders.add(order);
     orderList.getOrders().remove(order);
 
-    ui.printString("Order has successfully been finished");
+    ui.printString("Order has successfully been finished!");
   }
 
   public void cancelOrder(OrderList orderList, UI ui, TUI tui) {
@@ -34,8 +34,8 @@ public class ManageOrders {
     tui.showOrdersByOrderNr(orderList, ui);
 
     do {
-      ui.printString("Enter ordernumber");
-      orderNr = ui.getScanInt("This is not a number.");
+      ui.printString("Enter order number");
+      orderNr = ui.getScanInt("This is not a number!");
       order = null;
       for (int i = 0; i < orderList.getOrders().size(); i++) {
         if (orderList.getOrders().get(i).getOrderNr() == orderNr) {
