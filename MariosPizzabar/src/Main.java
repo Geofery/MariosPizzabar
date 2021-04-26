@@ -99,7 +99,7 @@ public class Main {
     public void markAsFinished(OrderList orderList) {
         int orderNr;
         Order order;
-
+        showOrdersByOrderNr(orderList);
         do {
             ui.printString("Enter ordernumber");
             orderNr = ui.getScanInt("This is not a number.");
