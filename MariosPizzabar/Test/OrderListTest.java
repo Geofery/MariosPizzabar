@@ -10,6 +10,7 @@ class OrderListTest {
   UIStub uiStub;
   OrderList orderList;
 
+
   @BeforeEach
   void before() {
     uiStub = new UIStub();
@@ -78,23 +79,42 @@ class OrderListTest {
   }
 
   @Test
-  void generateDateTime() {
+  void generateDateTimePhone() {
 
     //Arrange husk at ændre tid og dato når du tester til din ejen pc tid
-    String expected = "21-04-23 09:58";
+    LocalDateTime expected1 = LocalDateTime.now().plusHours(1);
+    DateTimeFormatter time = DateTimeFormatter.ofPattern("yy-MM-dd HH:mm");
+    String expected = expected1.format(time);
+    uiStub.confirmGetScanString("p");
 
     //Act
-    LocalDateTime actual1 = LocalDateTime.now();
-    DateTimeFormatter time = DateTimeFormatter.ofPattern("yy-MM-dd HH:mm");
-    String actual = actual1.format(time);
-
+    String actual = orderList.generateDateTime();
     //Assert
 
     assertEquals(expected, actual);
+
+  }
+
+  @Test
+  void generateDateTimeHouse() {
+
+    //Arrange husk at ændre tid og dato når du tester til din ejen pc tid
+    LocalDateTime expected1 = LocalDateTime.now().plusMinutes(25);
+    DateTimeFormatter time = DateTimeFormatter.ofPattern("yy-MM-dd HH:mm");
+    String expected = expected1.format(time);
+    uiStub.confirmGetScanString("h");
+
+    //Act
+    String actual = orderList.generateDateTime();
+    //Assert
+
+    assertEquals(expected, actual);
+
   }
 
   @Test
   void addPizza() {
+    
   }
 
   @Test
