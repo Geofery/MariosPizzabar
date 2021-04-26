@@ -8,7 +8,7 @@ public class CommandMenu {
     this.ui = ui;
   }
 
-  public void newRun() {
+  public void run() {
     OrderList orderList = new OrderList(ui);
     PizzaMenu menu = new PizzaMenu();
     Statistics stats = new Statistics();
@@ -117,6 +117,7 @@ public class CommandMenu {
   public void cancelOrder(OrderList orderList) {
     int orderNr;
     Order order;
+    showOrdersByOrderNr(orderList);
 
     do {
       ui.printString("Enter ordernumber");
@@ -134,20 +135,10 @@ public class CommandMenu {
     ui.printString("Order is cancelled");
   }
 
-  /* public void showStatistics(OrderList orderList, Statistics stats) {
-       // PrintStream fileOut = new PrintStream("Stats.txt");
-
-       for (int i = 0; i < orderList.getOrders().size(); i++) {
-           for (int j = 0; j < orderList.getOrders().size(); j++) {
-               Statistics pizzaTracker = new Statistics("Pizza nr: " + i++, orderList.getOrders().get(i).getOrderedPizzas().get(j).getNumber());
-               for (int k = 0; k < orderList.getOrders().get(i).getOrderedPizzas().size(); k++) {
-                   stats.getPizzaPointBoard()[k] = pizzaTracker;
-               }
-           }
-       }
-
+  public void showStatistics() {
+   
    }
-*/
+
   public void getTotalOfDay() {
     int total = 0;
     for (int i = 0; i < finishedOrders.size(); i++) {
