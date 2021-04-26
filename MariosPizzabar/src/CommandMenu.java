@@ -13,6 +13,7 @@ public class CommandMenu {
     PizzaMenu menu = new PizzaMenu();
     ManageOrders manageOrders = new ManageOrders();
     TUI tui = new TUI();
+    Economy economy = new Economy();
 
     Menu digitalMenu = new Menu("Marios pizzabar", "Please choose: ", ui);
     boolean keepRunning;
@@ -50,7 +51,7 @@ public class CommandMenu {
           ui.printString("Quitting...");
           ui.printString("Have a nice evening!");
           ui.printString("Your total of the day:");
-          getTotalOfDay();
+          economy.getTotalOfDay(ui, finishedOrders);
           keepRunning = false;
           break;
         default:
@@ -58,19 +59,6 @@ public class CommandMenu {
           break;
       }
     } while (keepRunning);
-  }
-
-  public void showStatistics() {}
-
-  public void getTotalOfDay() {
-    int total = 0;
-    for (int i = 0; i < finishedOrders.size(); i++) {
-      ArrayList<Pizza> finishedPizzas = finishedOrders.get(i).getOrderedPizzas();
-      for (int j = 0; j < finishedPizzas.size(); j++) {
-        total += finishedPizzas.get(j).getPrice();
-      }
-    }
-    ui.printTotal(total);
   }
 }
 
