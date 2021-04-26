@@ -1,4 +1,3 @@
-import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Scanner;
 
@@ -16,7 +15,7 @@ public class UI {
   }
 
   public int getScanInt() {
-    return this.getScanInt("Not a valid input");
+    return this.getScanInt("Not a valid input!");
   }
 
   public String getScanString() {

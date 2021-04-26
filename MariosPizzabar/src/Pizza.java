@@ -3,7 +3,6 @@ public class Pizza {
   private int number;
   private String toppings;
   private int price;
-  private final String VALUTA = "kr.";
 
   public Pizza(String name, int number, String toppings, int price){
     this.name = name;
@@ -16,12 +15,10 @@ public class Pizza {
     return price;
   }
 
-  public int getNumber() {
-    return number;
-  }
-
   @Override
   public String toString() {
+    final String VALUTA = "kr.";
+
     return number + "." + name +
         "\n Toppings:\n " + toppings +
         "\n " + price + VALUTA +

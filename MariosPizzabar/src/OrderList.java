@@ -3,7 +3,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 public class OrderList {
-  private ArrayList<Order> orderList = new ArrayList<>();
+  private ArrayList<Order> listOfOrders = new ArrayList<>();
   private UI ui;
   private int nextOrderNr = 1;
 
@@ -20,7 +20,7 @@ public class OrderList {
       ui.printString("Order is annulled");
       return;
     }
-    orderList.add(new Order(orderNr, time, order));
+    listOfOrders.add(new Order(orderNr, time, order));
   }
 
   public int generateOrderNr() {
@@ -28,7 +28,8 @@ public class OrderList {
   }
 
   public LocalDateTime houseOrPhoneOrder() {
-    ui.printString("Is it a phone order or a house order? p/h");
+    ui.printString("Is it a phone order or a house order?");
+    ui.printString("Type \"p\" for phone order or \"h\" for house order");
     String answer = ui.getScanString().toLowerCase();
 
     if (answer.equals("p")) {
@@ -38,7 +39,7 @@ public class OrderList {
       LocalDateTime time = LocalDateTime.now().plusMinutes(25);
       return time;
     } else {
-      ui.printString("Wrong input, please enter p for phone or h for house");
+      ui.printString("Wrong input! Please enter \"p\" for phone or \"h\" for house");
     }
     return houseOrPhoneOrder();
   }
@@ -57,7 +58,7 @@ public class OrderList {
 
     do {
       ui.printString("Enter number 0, to exit: ");
-      ui.printString("Enter pizzanumber :");
+      ui.printString("Enter pizza number: ");
       choice = ui.getScanInt();
       validChoice = true;
       if (choice == 0) {
@@ -82,14 +83,7 @@ public class OrderList {
     return ordered;
   }
 
-  //Skal laves færdig, kan kun ændres ved at ændre time fra en String.
-  //Bliver ikke brugt da den er i UI.
- /* public ArrayList sortOrderByNr(ArrayList orderList, int orderNr) {
-    orderList.orderNr().sort(Comparator.naturalOrder());
-    return orderList;
-  }*/
-
   public ArrayList<Order> getOrders() {
-    return orderList;
+    return listOfOrders;
   }
 }
